@@ -1,0 +1,6 @@
+C:/Users/Usuario/Desktop/Universidad/Practicas/Trabajo Practica Uno/SCHC Contribution/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Usuario/Desktop/Universidad/Practicas/Trabajo Practica Uno/SCHC Contribution/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Usuario/Desktop/Universidad/Practicas/Trabajo Practica Uno/SCHC Contribution/cmake-build-debug/Client-Server-App/CMakeFiles/Client.dir
+C:/Users/Usuario/Desktop/Universidad/Practicas/Trabajo Practica Uno/SCHC Contribution/cmake-build-debug/Client-Server-App/CMakeFiles/Server.dir
+C:/Users/Usuario/Desktop/Universidad/Practicas/Trabajo Practica Uno/SCHC Contribution/cmake-build-debug/Client-Server-App/CMakeFiles/edit_cache.dir
+C:/Users/Usuario/Desktop/Universidad/Practicas/Trabajo Practica Uno/SCHC Contribution/cmake-build-debug/Client-Server-App/CMakeFiles/rebuild_cache.dir
