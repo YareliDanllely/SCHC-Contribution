@@ -13,4 +13,3 @@ set(HEADER_FILES
 
 
 add_library(utils STATIC ${SOURCE_FILES} ${HEADER_FILES})
-
