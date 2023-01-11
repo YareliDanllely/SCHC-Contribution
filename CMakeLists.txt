@@ -6,7 +6,8 @@ link_libraries(ws2_32 wsock32)
 set(CMAKE_CXX_STANDARD 17)
 
 #Add executable to test
-add_executable(castingTest Google_tests/castingTest.cpp)
+add_executable(castingTest Google_tests/utils/castingTest.cpp)
+add_executable(miscTest Google_tests/utils/miscTest.cpp)
 
 ##
 # Specifies include directories
@@ -14,6 +15,12 @@ add_executable(castingTest Google_tests/castingTest.cpp)
 
 target_include_directories (
         castingTest
+        PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/utils
+)
+
+target_include_directories (
+        miscTest
         PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/utils
 )
@@ -38,3 +45,4 @@ add_subdirectory(Client-Server-App)
 ##
 
 target_link_libraries(castingTest utils)
+target_link_libraries(miscTest utils)

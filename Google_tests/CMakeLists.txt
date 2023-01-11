@@ -6,5 +6,9 @@ add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 
-target_link_libraries(castingTest gtest gtest_main)
+target_link_libraries(castingTest  gtest gtest_main)
 target_link_libraries(castingTest utils)
+
+
+target_link_libraries(miscTest  gtest gtest_main)
+target_link_libraries(miscTest utils)
