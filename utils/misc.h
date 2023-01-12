@@ -4,10 +4,12 @@
 
 #ifndef SCHC_CONTRIBUTION_MISC_H
 #define SCHC_CONTRIBUTION_MISC_H
-
+#include <string.h>
 #include <iostream>
 #include <string>
-#include <any>
+#include <list>
+#include <fstream>
+#include <map>
 using namespace std;
 
 /**
@@ -68,7 +70,7 @@ bool is_monochar(char*str, char * value);
  * @return
  */
 
-vector<char> section_string(char* str, vector<int> );
+vector<char*> section_char(char* str, vector<int> indices );
 
 /**
  * Rounds a number to the next greater multiple of a specified factor.
@@ -77,5 +79,20 @@ vector<char> section_string(char* str, vector<int> );
  * @return
  */
 int round_to_next_multiple(int num, int factor);
+
+/**
+ * Inverts {key: value} pairs of a dictionary into {value: kay} pairs,
+ * only if no values are repeated
+ * @return
+ */
+map<int,char> invert_dict(map<char,int> m);
+
+/**
+ * save a char * into a file
+ * @param str
+ * @param path
+ */
+void generate_packet(char* str, char * path);
+
 
 #endif //SCHC_CONTRIBUTION_MISC_H
