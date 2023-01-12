@@ -43,12 +43,15 @@ TEST(findTest,miscTest){
 
 TEST(isMonarch, miscTest) {
     char strTest[] = "1111111";
-    char search[] = "1";
     char searchTwo[] = "0";
-    char strTestTwo[] = "1111111";
-
     ASSERT_FALSE(is_monochar(strTest,searchTwo));
-   /* ASSERT_TRUE(is_monochar(strTestTwo,search));*/
+
+}
+
+TEST(isMonarchTestTwo, miscTest) {
+    char strTest[] = "1111111";
+    char search[] = "1";
+    ASSERT_TRUE(is_monochar(strTest,search));
 }
 
 TEST(roundTONextMultiple,misc) {
