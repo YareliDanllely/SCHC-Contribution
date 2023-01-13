@@ -60,6 +60,14 @@ public:
             throw invalid_argument("Received data is larger than buffer size.");
         }
 
+        char * finalMessage = (char *) malloc(bufSize+1);
+        char * pointer = finalMessage;
+        strcpy(finalMessage,readMessage);
+        pointer += bufSize +1;
+        *pointer = '\0';
+
+        return finalMessage;
+
     }
 
     void set_reception( bool flag) override{
