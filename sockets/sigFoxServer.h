@@ -1,6 +1,7 @@
-#include <iostream>
-using namespace std;
-#include "Socket.h"
+
+#ifndef SCHC_CONTRIBUTION_SIGFOXSERVER_H
+#define SCHC_CONTRIBUTION_SIGFOXSERVER_H
+
 #if defined(WIN64)
 #include <winsock2.h>
 # pragma comment(lib,"ws2_32.lib")
@@ -11,13 +12,17 @@ using namespace std;
 #include <unistd.h>
 #endif
 
-class SigfoxSocket : public Socket {
+using namespace std;
+#include <iostream>
+#include "Socket.h"
+
+
+class SigfoxServer : public Socket {
 public:
     char DEVICE[10] = "1a2b3c";
     int SOCKET = socket(AF_INET, SOCK_STREAM, 0);
-    int PORT = 5000;
 
-    void connectSocket(int port){
+    void initializeSocket(int port) override {
 
 #if defined(WIN64)
 
@@ -39,23 +44,36 @@ public:
         serverAdress.sin_port = htons(port);
         serverAdress.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-        /* Connect to server */
-        int connectStatus = connect(SOCKET, (struct sockaddr*)&serverAdress, sizeof(serverAdress));
+        /* Bind socket to the specified address and port */
+        int bindConnection = bind(SOCKET, (struct sockaddr*)&serverAdress, sizeof(serverAdress));
 
+        /* Bind connection error */
+        if (bindConnection < 0 ) {
+            cout << "Bind failed" << endl;
+        }
+
+        /*listen for connections */
+        listen(SOCKET,1);
     }
 
     void sendMessage(char* message) override {
-        connectSocket(PORT);
         SEQNUM +=1;
         send(SOCKET,message, sizeof(message),0);
     }
 
     char *recvMessage(int bufSize) override {
 
+        int client = accept(SOCKET,NULL, NULL);
+
+        /* valid connection  */
+        if (client < 0 ){
+            cout << "Error on accepting" << endl;
+        }
+
         char readMessage[bufSize];
         int iResult;
 
-        iResult = recv(SOCKET,readMessage,sizeof(readMessage),0);
+        iResult = recv(client,readMessage,sizeof(readMessage),0);
         if (iResult == 8) {
             throw invalid_argument("Received data is larger than buffer size.");
         }
@@ -70,11 +88,11 @@ public:
 
     }
 
-    void set_reception( bool flag) override{
+    void set_reception( bool flag) override {
         EXPECTS_ACK = flag;
     }
 
-    void set_timeout(float timeOut ) override{
+    void set_timeout(float timeOut ) override {
         TIMEOUT = timeOut;
     }
 

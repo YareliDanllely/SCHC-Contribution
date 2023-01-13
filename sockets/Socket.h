@@ -8,7 +8,15 @@ public:
      bool EXPECTS_ACK = false;
      int SEQNUM = 0;
      int TIMEOUT = 60;
+     int PORT = 5000;
 
+
+     /**
+      * initalize socket parameters
+      * @param port
+      */
+
+     virtual void initializeSocket(int port);
 
     /**
      * Sends data towards the receiver end

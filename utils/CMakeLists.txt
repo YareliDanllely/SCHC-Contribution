@@ -6,7 +6,7 @@ set(HEADER_FILES
         nestedDict.h
         )
 
-set(HEADER_FILES
+set(SOURCE_FILES
         casting.cpp
         misc.cpp
         nestedDict.cpp

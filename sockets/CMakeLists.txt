@@ -2,11 +2,13 @@ project(utils)
 
 set(HEADER_FILES
         Socket.h
+        sigFoxClient.h
         )
 
-set(HEADER_FILES
-        socket.cpp
-        SigfoxSocket.cpp
+set(SOURCE_FILES
+        Socket.cpp
+        sigFoxClient.cpp
+        sigFoxServer.cpp
         )
 
 
