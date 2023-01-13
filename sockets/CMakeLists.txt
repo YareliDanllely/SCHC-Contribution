@@ -5,7 +5,8 @@ set(HEADER_FILES
         )
 
 set(HEADER_FILES
-        Socket.cpp
+        socket.cpp
+        SigfoxSocket.cpp
         )
 
 

@@ -5,7 +5,7 @@ set(HEADER_FILES
         )
 
 set(HEADER_FILES
-       schc.cpp
+        schc.cpp
         )
 
 

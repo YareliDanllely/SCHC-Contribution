@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(castingTest Google_tests/utils/castingTest.cpp)
 add_executable(miscTest Google_tests/utils/miscTest.cpp)
 add_executable(nestedDictTest Google_tests/utils/nestedDictTest.cpp)
+add_executable(sigFoxSocketTest Google_tests/sockets/sigFoxSocketTest.cpp)
+
 ##
 # Specifies include directories
 ##
@@ -29,6 +31,12 @@ target_include_directories (
         nestedDictTest
         PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/utils
+)
+
+target_include_directories (
+        sigFoxSocketTest
+        PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/sockets
 )
 
 
@@ -57,5 +65,5 @@ add_subdirectory(sockets)
 target_link_libraries(castingTest utils)
 target_link_libraries(miscTest utils)
 target_link_libraries(nestedDictTest utils)
-
+target_link_libraries(sigFoxSocketTest sockets)
 
