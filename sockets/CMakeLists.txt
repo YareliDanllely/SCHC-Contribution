@@ -3,6 +3,7 @@ project(utils)
 set(HEADER_FILES
         Socket.h
         sigFoxClient.h
+        sigFoxServer.h
         )
 
 set(SOURCE_FILES

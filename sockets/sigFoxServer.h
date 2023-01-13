@@ -1,28 +1,16 @@
+//
+// Created by Usuario on 13-01-2023.
+//
 
 #ifndef SCHC_CONTRIBUTION_SIGFOXSERVER_H
 #define SCHC_CONTRIBUTION_SIGFOXSERVER_H
-
-#if defined(WIN64)
-#include <winsock2.h>
-# pragma comment(lib,"ws2_32.lib")
-#else
-#define closesocket close
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#endif
-
-using namespace std;
-#include <iostream>
 #include "Socket.h"
 
-
-class SigfoxServer : public Socket {
+class sigFoxServer: public Socket {
 public:
     char DEVICE[10] = "1a2b3c";
-    int SOCKET = socket(AF_INET, SOCK_STREAM, 0);
 
-    void initializeSocket(int port) override {
+    virtual void initializeSocket(int port)  {
 
 #if defined(WIN64)
 
@@ -54,14 +42,10 @@ public:
 
         /*listen for connections */
         listen(SOCKET,1);
+
     }
 
-    void sendMessage(char* message) override {
-        SEQNUM +=1;
-        send(SOCKET,message, sizeof(message),0);
-    }
-
-    char *recvMessage(int bufSize) override {
+    virtual char *recvMessage(int bufSize)  {
 
         int client = accept(SOCKET,NULL, NULL);
 
@@ -88,14 +72,8 @@ public:
 
     }
 
-    void set_reception( bool flag) override {
-        EXPECTS_ACK = flag;
-    }
-
-    void set_timeout(float timeOut ) override {
-        TIMEOUT = timeOut;
-    }
-
-
 
 };
+
+
+#endif //SCHC_CONTRIBUTION_SIGFOXSERVER_H
