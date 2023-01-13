@@ -28,19 +28,14 @@ public:
      int SOCKET = socket(AF_INET, SOCK_STREAM, 0);
 
 
-
     /**
-     *
+     * Sends data towards the receiver end
      * @param message
      */
     virtual void sendMessage(char* message) {
         send(SOCKET,message, sizeof(message),0);
         SEQNUM +=1;
     }
-
-
-
-
 
     /**
        * Configures the socket to be able to receive a message after sending one
@@ -51,7 +46,6 @@ public:
         EXPECTS_ACK = flag;
     }
 
-
     /**
      * Configures the timeout value of the socket, in seconds
      * @param timeOut
@@ -60,10 +54,6 @@ public:
     virtual void set_timeout(float timeOut ){
         TIMEOUT = timeOut;
     }
-
-
-
-
 
 };
 

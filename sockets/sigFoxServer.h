@@ -10,6 +10,10 @@ class sigFoxServer: public Socket {
 public:
     char DEVICE[10] = "1a2b3c";
 
+    /**
+     * initialize socket parameters
+     * @param port
+     */
     virtual void initializeSocket(int port)  {
 
 #if defined(WIN64)
@@ -43,8 +47,14 @@ public:
         /*listen for connections */
         listen(SOCKET,1);
 
+        
     }
 
+    /**
+     * Receives data from the socket buffer
+     * @param bufSize
+     * @return
+     */
     virtual char *recvMessage(int bufSize)  {
 
         int client = accept(SOCKET,NULL, NULL);
