@@ -24,10 +24,7 @@ public:
      int SEQNUM = 0;
      int TIMEOUT = 60;
      int PORT = 5000;
-
-     int SOCKET = socket(AF_INET, SOCK_STREAM, 0);
-
-
+     int SOCKET;
     /**
      * Sends data towards the receiver end
      * @param message

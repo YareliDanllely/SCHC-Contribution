@@ -4,6 +4,7 @@
 
 
 
+
 TEST(initTestClient, sigFoxSocket){
     sigFoxClient socket;
     char deviceClient[10] = "1a2b3c";
@@ -25,16 +26,22 @@ TEST(initTestServer, sigFoxSocket){
     ASSERT_EQ(strcmp(socket.DEVICE,deviceClient),0);
 }
 
-TEST(sendMessageClient, sigFoxSocket){
-    sigFoxServer socketServer;
-    sigFoxClient socketClient;
+TEST(socketTest, sigFoxSocket){
 
-    socketServer.initializeSocket(socketServer.PORT);
+    sigFoxClient socketClient;
     socketClient.initializeSocket(socketClient.PORT);
 
-    char sendMessage[] = "hi i'm a test";
+    char sendMessage[] = "test";
 
     socketClient.sendMessage(sendMessage);
     ASSERT_EQ(socketClient.SEQNUM,1);
 
+    char * response = socketClient.recvMessage(5);
+
+    ASSERT_EQ(strcmp(response,"test2"),0);
+    ASSERT_TRUE(socketClient.EXPECTS_ACK);
+
 }
+
+
+
