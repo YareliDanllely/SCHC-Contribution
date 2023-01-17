@@ -100,8 +100,8 @@ vector<int> find(char* str, char *search){
     int len = strlen(str);
     vector<int> values;
     for (int i=0; i<len; i++) {
+
         if (*pointer == *search){
-            cout << *pointer << endl;
             values.push_back(i);
         }
         pointer++;
@@ -122,12 +122,8 @@ bool is_monochar(char*str, char * value){
         pointer++;
     }
 
-    if(counter == 0) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    (counter == 0 ?  true :  false);
+
 }
 
 int round_to_next_multiple(int num, int factor){
