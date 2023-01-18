@@ -8,103 +8,167 @@ TEST(cretaeAFileTest, dbTest){
     ASSERT_EQ(strcmp(file.ROOT,path),0);
 }
 
-TEST(filseSizeTest, dbTest){
-    char path[] = "testDb.txt";
+TEST(joinPathTest, dbTest) {
+    char path[] = "listFilesTest";
     CommonFileStorage file(path);
-    ASSERT_EQ(file.fileSize(),8);
+    char result[] = "testOne.txt";
+
+    ASSERT_TRUE(file.isFile(result));
 }
 
-TEST(readFileTest, dbTest){
-    char path[] = "testDb.txt";
-    CommonFileStorage file(path);
-    ASSERT_EQ(strcmp(file.readFile(),"test db"),0);
+
+
+TEST(joinPathTestTwo, dbTest) {
+    char path[] = "\0";
+    char root[] = "listFilesTest";
+    CommonFileStorage file(root);
+
+    ASSERT_EQ(strcmp(file.joinPath(path),file.ROOT),0);
 }
+
+TEST(joinPathTestThree, dbTest) {
+    char path[] = "listFilesTest";
+    char root[] = "\0";
+    CommonFileStorage file(root);
+
+    ASSERT_EQ(strcmp(file.joinPath(path),path),0);
+}
+
+
+TEST(filseSizeTest, dbTest){
+    char path[] = "listFilesTest";
+    CommonFileStorage file(path);
+    char pathTwo[] = "testOne.txt";
+    ASSERT_EQ(file.fileSize(pathTwo),5);
+}
+
+
+
+TEST(readFileTest, dbTest){
+    char path[] = "listFilesTest";
+    char test[]= "testOne.txt";
+    CommonFileStorage file(path);
+    ASSERT_EQ(strcmp(file.readFile(test),"hello"),0);
+   ;
+}
+
 
 TEST(writeFileTest,dbTest){
     char str[]= "test db two";
-    char path[] = "testDb.txt";
-    CommonFileStorage file(path);
-    file.writeFile(str);
-    ASSERT_EQ(strcmp(file.readFile(),"test db two"),0);
+    char ROOT[] = "listFilesTest";
+    char path[] = "hello.tx";
+    CommonFileStorage file(ROOT);
+    file.writeFile(path,str);
+    ASSERT_EQ(strcmp(file.readFile(path),"test db two"),0);
 }
+
 
 TEST(isFileTest, dbTest){
-    char path[] = "testDbDelete.txt";
-    CommonFileStorage file(path);
-    ASSERT_TRUE(file.isFile(file.ROOT));
+    char ROOT[] = "listFilesTest";
+    char path[] = "testOne.txt";
+    CommonFileStorage file(ROOT);
+    ASSERT_TRUE(file.isFile(path));
 
     char pathTwo[] = "testdbdb.txt";
-    CommonFileStorage fileTwo(pathTwo);
-    ASSERT_FALSE(fileTwo.isFile(fileTwo.ROOT));
+    CommonFileStorage fileTwo(ROOT);
+    ASSERT_FALSE(fileTwo.isFile(pathTwo));
 }
+
+
 
 TEST(fileExistTest, dbTest) {
-    char path[] = "testDbDelete.txt";
-    CommonFileStorage file(path);
-    ASSERT_TRUE(file.fileExists(file.ROOT));
+    char ROOT[] = "listFilesTest";
+    char path[] = "testOne.txt";
+    CommonFileStorage file(ROOT);
+    ASSERT_TRUE(file.fileExists(path));
 
     char pathTwo[] = "testdbdb.txt";
-    CommonFileStorage fileTwo(pathTwo);
-    ASSERT_FALSE(fileTwo.fileExists(fileTwo.ROOT));
+    CommonFileStorage fileTwo(ROOT);
+    ASSERT_FALSE(fileTwo.fileExists(pathTwo));
 }
 
-TEST(deleteFileTest, dbTest){
-    char path[] = "testDbDelete.txt";
-    CommonFileStorage file(path);
-    file.deleteFile(path);
-    ASSERT_FALSE(file.isFile(file.ROOT));
-}
+
 
 TEST(isFolderTest,dbTest){
-    char path[] = "listFilesTest";
-    CommonFileStorage file(path);
+    char ROOT[] = "listFilesTest";
+    char path[] = "imADirectory";
+    CommonFileStorage file(ROOT);
     ASSERT_TRUE(file.isFolder(path));
 
     char pathTwo[] = "testDbDb";
-    CommonFileStorage fileTwo(pathTwo);
-    ASSERT_FALSE(fileTwo.isFolder(fileTwo.ROOT));
+    CommonFileStorage fileTwo(ROOT);
+    ASSERT_FALSE(fileTwo.isFolder(pathTwo));
 }
 
+
 TEST(folderExistsTest, dbTest) {
-    char path[] = "listFilesTest";
-    CommonFileStorage file(path);
+    char ROOT[] = "listFilesTest";
+    char path[] = "imADirectory";
+    CommonFileStorage file(ROOT);
     ASSERT_TRUE(file.folderExists(path));
 
     char pathTwo[] = "listFilesTestTest";
-    CommonFileStorage fileTwo(pathTwo);
-    ASSERT_FALSE(fileTwo.folderExists(pathTwo));
+    ASSERT_FALSE(file.folderExists(pathTwo));
 }
 
+
+
 TEST(createFolderTest, dbTest) {
-    char path[] = "listFilesTestTwo";
-    CommonFileStorage file(path);
+    char ROOT[] = "listFilesTest";
+    char path[] = "imADirectory\\Direct";
+    CommonFileStorage file(ROOT);
+
     file.createFolder(path);
     ASSERT_TRUE(file.folderExists(path));
 }
 
+TEST(createFolderTestTwo, dbTest) {
+    char ROOT[] = "listFilesTest";
+    char path[] = "\0";
+    char test[] = "listFilesTest";
+    CommonFileStorage file(ROOT);
+
+    file.createFolder(path);
+    ASSERT_TRUE(file.folderExists(test));
+}
+
+
+
 TEST(listFilesTest, dbTest) {
-    char path[] = "listFilesTest";
-    CommonFileStorage file(path);
+    char ROOT[] = "listFilesTest";
+    char path[] = "imADirectory";
+    CommonFileStorage file(ROOT);
 
-    char result[] = "listFilesTest\testOne.txt";
+    char result[] = "listFilesTest\\imADirectory\\testTwo.txt";
 
-    vector<char*> list = file.listFiles(path);
-    ASSERT_EQ(strlen(list[1]),25);
-    ASSERT_EQ(strlen(path),25);
-    ASSERT_EQ(strcmp(list[1],result),0);
+    vector <char*> list = file.listFiles(path);
+    ASSERT_EQ(strcmp(list[0],result),0);
+}
+
+
+TEST(deleteFileTest, dbTest){
+    char ROOT[] = "listFilesTest";
+    char path[] = "testDbDelete.txt";
+    CommonFileStorage file(ROOT);
+    file.deleteFile(path);
+    ASSERT_FALSE(file.isFile(file.ROOT));
 }
 
 
 TEST(deleteFolderTestOne, dbTest) {
-    char path[] = "listFilesTestTwo";
-    CommonFileStorage file(path);
+    char ROOT[] = "listFilesTest";
+    char path[] = "imADirectory";
+    CommonFileStorage file(ROOT);
+
     ASSERT_TRUE(file.folderExists(path));
 }
 
 TEST(deleteFolderTestOneParTwo, dbTest) {
-    char path[] = "listFilesTestTwo";
-    CommonFileStorage file(path);
+    char ROOT[] = "listFilesTest";
+    char path[] = "imADirectory";
+    CommonFileStorage file(ROOT);
 
     file.deleteFolder(path);
     ASSERT_FALSE(file.folderExists(path));
 }
+
