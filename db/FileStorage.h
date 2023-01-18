@@ -132,7 +132,6 @@ public:
         ::FILE * fp = ::fopen(joinPath(path), "w");
         ::fwrite(data, strlen(data),1,fp);
         ::fclose(fp);
-
     }
 
     /**
@@ -172,18 +171,19 @@ public:
 
     virtual void deleteFolder(char*path){
         if (folderExists(path)) {
-            for (const auto & file : fs::directory_iterator(joinPath(path))) {
-                cout << file.path() <<endl;
-                char * pathResult = (char *)::malloc(file.path().string().size()- (strlen(ROOT)+1));
-                strcpy(pathResult,&file.path().string()[strlen(ROOT)+1]);
+            if (not emptyFolder(path)){
+                for (const auto & file : fs::directory_iterator(joinPath(path))) {
+                    cout << file.path() <<endl;
+                    char * pathResult = (char *)::malloc(file.path().string().size()- (strlen(ROOT)+1));
+                    strcpy(pathResult,&file.path().string()[strlen(ROOT)+1]);
 
-                if (isFile(pathResult)){
-                    deleteFile(pathResult);
-                    cout << "delete file" << endl;
-                }
-                else if (isFolder(pathResult)){
-                    deleteFolder(pathResult);
-                }
+                    if (isFile(pathResult)){
+                        deleteFile(pathResult);
+                    }
+                    else if (isFolder(pathResult)){
+                        deleteFolder(pathResult);
+                    }
+                 }
             }
 
         }
@@ -230,7 +230,6 @@ public:
      * @return true or false
      */
     virtual bool fileExists(char * path) {
-        ::FILE * fp;
         bool result;
         (::fopen(joinPath(path), "r") ? result = true : result=false);
         return result;
@@ -269,6 +268,27 @@ public:
         }
         return result;
 
+    }
+
+    /**
+     * Checks if a file exists and is empty.
+     * @param path
+     * @return
+     */
+    virtual bool emptyFile(char *path) {
+        int size = fileSize(path);
+        return fileExists(path) && size ==0;
+    }
+
+    /**
+     * Checks if a folder exists and is empty
+     * @param path
+     * @return
+     */
+
+    virtual bool emptyFolder(char *path) {
+        vector <char *> files = listFiles(path);
+        return folderExists(path) && files.size()==0;
     }
 
 };

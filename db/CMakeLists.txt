@@ -13,5 +13,4 @@ set(SOURCE_FILES
 
 
 add_library(db STATIC ${SOURCE_FILES} ${HEADER_FILES})
-add_executable(ComonFile CommonFileStorage.cpp)
 

@@ -172,3 +172,18 @@ TEST(deleteFolderTestOneParTwo, dbTest) {
     ASSERT_FALSE(file.folderExists(path));
 }
 
+TEST(fileEmptyTest, dbTest) {
+    char ROOT[] = "listFilesTest";
+    char path[] = "listFilesTest\\emptyFile.txt";
+    CommonFileStorage file(ROOT);
+
+    ASSERT_TRUE(file.emptyFile(path));
+}
+
+TEST(folderEmptyTest, dbTest) {
+    char ROOT[] = "listFilesTest";
+    char path[] = "emptyDirectory";
+    CommonFileStorage file(ROOT);
+
+    ASSERT_TRUE(file.emptyFolder(path));
+}
