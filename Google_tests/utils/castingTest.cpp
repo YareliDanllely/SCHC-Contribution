@@ -7,6 +7,9 @@
 TEST(binToInt,castingTest) {
     char binTest[] = "11010010";
     EXPECT_EQ(210, bin_to_int(binTest));
+
+    char binTestTwo[] = "000";
+    EXPECT_EQ(0, bin_to_int(binTestTwo));
 }
 
 

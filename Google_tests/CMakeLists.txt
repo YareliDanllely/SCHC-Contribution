@@ -23,3 +23,8 @@ target_link_libraries(sigFoxSocketTest sockets)
 target_link_libraries(dbTest  gtest gtest_main)
 target_link_libraries(dbTest db)
 
+target_link_libraries(ruleTest  gtest gtest_main)
+target_link_libraries(ruleTest Entities)
+
+target_link_libraries(sigFoxProfileTest  gtest gtest_main)
+target_link_libraries(sigFoxProfileTest Entities)

@@ -109,6 +109,25 @@ vector<int> find(char* str, char *search){
     return values;
 }
 
+char * cutChar(char * str, int cutter){
+    int size = strlen(str);
+    char strCpy[size+1];
+    strcpy(strCpy,str);
+    char * pointer = strCpy;
+    pointer += cutter;
+    *pointer = '\0';
+    return returnChar(strCpy);
+
+}
+
+
+char * returnChar(char * str){
+    char * result = (char *) ::malloc(strlen(str)+1);
+    strcpy(result,str);
+    return result;
+}
+
+
 bool is_monochar(char*str, char * value){
     char * pointer = str;
     int len = strlen(str);

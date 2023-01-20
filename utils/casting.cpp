@@ -8,10 +8,29 @@
 using namespace std;
 
 
-int bin_to_int(char * bin){
-    return stoi(bin,0,2);
-}
+int bin_to_int(char * bin) {
 
+    try {
+        return stoi(bin, 0, 2);
+
+    }
+
+    catch (const invalid_argument& ia) {
+        //std::cerr << "Invalid argument: " << ia.what() << std::endl;
+        return -1;
+    }
+
+    catch (const out_of_range& oor) {
+        //std::cerr << "Out of Range error: " << oor.what() << std::endl;
+        return -2;
+    }
+
+    catch (const exception& e)
+    {
+        //std::cerr << "Undefined error: " << e.what() << std::endl;
+        return -3;
+    }
+}
 
 char* bin_to_hex(char *bin) {
     int i = stol(bin,NULL,2);
@@ -39,8 +58,8 @@ char* int_to_bin(int num, int length) {
         num/=2;
     }
     string binResult(result.rbegin(),result.rend());
-    char * finalResult = zfill(&binResult[0],length);
-    return finalResult;
+    char * finalResult = &binResult[0];
+    return returnChar(zfill(finalResult,length));
 }
 
 

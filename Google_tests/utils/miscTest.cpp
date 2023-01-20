@@ -31,7 +31,7 @@ TEST(replaceCharTest,miscTest) {
 
 }
 
-TEST(findTest,miscTest){
+TEST(findTestTest,miscTest){
     char strTest[] = "1001011";
     char search[] = "1";
     vector<int> resultFind = find(strTest,search);
@@ -41,20 +41,20 @@ TEST(findTest,miscTest){
 
 }
 
-TEST(isMonarch, miscTest) {
+TEST(isMonarchTest, miscTest) {
     char strTest[] = "1111111";
     char searchTwo[] = "0";
     ASSERT_FALSE(is_monochar(strTest,searchTwo));
 
 }
 
-TEST(isMonarchTestTwo, miscTest) {
+TEST(isMonarchTestTwoTest, miscTest) {
     char strTest[] = "1111111";
     char search[] = "1";
     ASSERT_TRUE(is_monochar(strTest,search));
 }
 
-TEST(roundTONextMultiple,misc) {
+TEST(roundTONextMultipleTest,misc) {
     ASSERT_EQ(14, round_to_next_multiple(8,7));
     ASSERT_EQ(14, round_to_next_multiple(14,7));
     ASSERT_EQ(21, round_to_next_multiple(15,7));
@@ -62,14 +62,14 @@ TEST(roundTONextMultiple,misc) {
     ASSERT_EQ(-14, round_to_next_multiple(-20,7));
 }
 
-TEST(invertDict, miscTest) {
+TEST(invertDictTest, miscTest) {
     map<char,int> mapTest ={ {'a',1},{'b',2},{'c',3}};
     map<int,char> mapResult ={ {1,'a'},{2,'b'},{3,'c'}};
     ASSERT_EQ(mapResult, invert_dict(mapTest) );
 
 }
 
-TEST(invertDictCannotInverted, miscTest) {
+TEST(invertDictCannotInvertedTest, miscTest) {
     map<char,int> mapTest ={ {'a',1},{'b',1},{'c',3}};
 
     try {
@@ -82,7 +82,7 @@ TEST(invertDictCannotInverted, miscTest) {
 
 }
 
-TEST(sectionString, miscTest) {
+TEST(sectionStringTest, miscTest) {
     char charTest[] = "AAAABBCCCDDDDDD";
     vector<int> indices = {0,4,6,9};
     vector<char*> result = section_char(charTest,indices);
@@ -93,7 +93,7 @@ TEST(sectionString, miscTest) {
 }
 
 /* the file is in the cmake-build-debug directory*/
-TEST(geneneratePacket, miscTest){
+TEST(geneneratePacketTest, miscTest){
     char strTest[] = "This is a test";
     char path[] = "packetTest.txt";
 
@@ -108,3 +108,13 @@ TEST(geneneratePacket, miscTest){
 
     ASSERT_EQ(strcmp(strTest,readFile),0);
 }
+
+TEST(cutCharTest, miscTes){
+    char strTest[] = "1101010";
+    char resultTest[] = "110";
+    char resultTestTwo[] = "11010";
+
+    ASSERT_EQ(strcmp(resultTest, cutChar(strTest,3)),0);
+    ASSERT_EQ(strcmp(resultTestTwo, cutChar(strTest,5)),0);
+}
+

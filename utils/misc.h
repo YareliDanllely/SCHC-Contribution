@@ -7,6 +7,7 @@
 #include <string.h>
 #include <iostream>
 #include <string>
+#include "vector"
 #include <list>
 #include <fstream>
 #include <map>
@@ -54,6 +55,20 @@ char * replaceChar(char* str, int position, char *newChar );
  * @return array with positions of value to search
  */
 vector<int> find(char* str, char *search);
+
+/**
+ * return a char cut in a size given by  acutter
+ * @param str
+ * @return cut char
+ */
+char * cutChar(char * str, int cutter);
+
+/**
+ * return a char using malloc
+ * @param str
+ * @return
+ */
+char * returnChar(char * str);
 
 /**
  * Checks if a string contains only repetitions of one character.

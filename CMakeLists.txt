@@ -11,6 +11,9 @@ add_executable(miscTest Google_tests/utils/miscTest.cpp)
 add_executable(nestedDictTest Google_tests/utils/nestedDictTest.cpp)
 add_executable(sigFoxSocketTest Google_tests/sockets/sigFoxSocketTest.cpp)
 add_executable(dbTest Google_tests/db/dbTest.cpp)
+add_executable(ruleTest Google_tests/Entities/ruleTest.cpp)
+add_executable(sigFoxProfileTest Google_tests/Entities/sigFoxProfileTest.cpp)
+
 ##
 # Specifies include directories
 ##
@@ -39,6 +42,14 @@ target_include_directories (
         ${CMAKE_CURRENT_SOURCE_DIR}/sockets
 )
 
+target_include_directories (
+        ruleTest
+        PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/Entities
+)
+
+
+
 
 ##
 # Include directories
@@ -49,6 +60,7 @@ include_directories(utils)
 include_directories(config)
 include_directories(sockets)
 include_directories(db)
+include_directories(Entities)
 
 ##
 # Add subdirectories to the build.
@@ -59,6 +71,7 @@ add_subdirectory(Client-Server-App)
 add_subdirectory(config)
 add_subdirectory(sockets)
 add_subdirectory(db)
+add_subdirectory(Entities)
 
 ##
 # Add target link
@@ -68,5 +81,9 @@ target_link_libraries(castingTest utils)
 target_link_libraries(miscTest utils)
 target_link_libraries(nestedDictTest utils)
 target_link_libraries(sigFoxSocketTest sockets)
-target_link_libraries(dbTest db)
+target_link_libraries(ruleTest Entities)
+target_link_libraries(sigFoxProfileTest Entities)
+
+
+
 
