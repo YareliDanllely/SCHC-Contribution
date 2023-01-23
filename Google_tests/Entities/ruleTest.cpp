@@ -7,7 +7,7 @@ TEST(createRuleTest, ruleTest) {
     char ruleId[] = "000";
     Rule rule = Rule(ruleId);
 
-    ASSERT_EQ(strcmp(rule.RULE_ID,ruleId),0);
+    ASSERT_EQ(strcmp(rule.STR,ruleId),0);
     ASSERT_EQ(rule.ID,0);
     ASSERT_EQ(rule.RULE_ID_SIZE,3);
     ASSERT_EQ(rule.T,0);
@@ -27,7 +27,7 @@ TEST(createRuleTestTwo, ruleTest) {
     char ruleId[] = "111";
     Rule rule = Rule(ruleId);
 
-    ASSERT_EQ(strcmp(rule.RULE_ID,ruleId),0);
+    ASSERT_EQ(strcmp(rule.STR,ruleId),0);
     ASSERT_EQ(rule.ID,7);
     ASSERT_EQ(rule.RULE_ID_SIZE,6);
     ASSERT_EQ(rule.T,0);
@@ -51,7 +51,7 @@ TEST(fromHexTest, ruleTest) {
     char ruleId[] = "00010000";
     Rule newRule = newRule.from_hex(strId);
 
-    ASSERT_EQ(strcmp(newRule.RULE_ID,ruleId),0);
+    ASSERT_EQ(strcmp(newRule.STR,ruleId),0);
     ASSERT_EQ(newRule.ID,16);
 
 }

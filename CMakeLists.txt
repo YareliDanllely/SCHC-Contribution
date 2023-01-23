@@ -13,7 +13,7 @@ add_executable(sigFoxSocketTest Google_tests/sockets/sigFoxSocketTest.cpp)
 add_executable(dbTest Google_tests/db/dbTest.cpp)
 add_executable(ruleTest Google_tests/Entities/ruleTest.cpp)
 add_executable(sigFoxProfileTest Google_tests/Entities/sigFoxProfileTest.cpp)
-
+add_executable(headerTest Google_tests/Messages/headerTest.cpp)
 ##
 # Specifies include directories
 ##
@@ -61,6 +61,7 @@ include_directories(config)
 include_directories(sockets)
 include_directories(db)
 include_directories(Entities)
+include_directories(Messages)
 
 ##
 # Add subdirectories to the build.
@@ -72,6 +73,7 @@ add_subdirectory(config)
 add_subdirectory(sockets)
 add_subdirectory(db)
 add_subdirectory(Entities)
+add_subdirectory(Messages)
 
 ##
 # Add target link

@@ -3,11 +3,13 @@ project(Entities)
 set(HEADER_FILES
         Rule.h
         SigFoxProfile.h
+        exceptions.h
         )
 
 set(SOURCE_FILES
        Rule.cpp
         SigFoxProfile.cpp
+        exceptions.cpp
         )
 
 

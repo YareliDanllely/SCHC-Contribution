@@ -8,7 +8,7 @@
 
 class Rule {
 public:
-    char* RULE_ID;
+    char* STR;
     int ID ;
     int RULE_ID_SIZE;
     int T;
@@ -28,10 +28,10 @@ public:
 
 
    Rule(char *ruleId) {
-        RULE_ID = ruleId;
-        ID = bin_to_int(RULE_ID);
+        STR = ruleId;
+        ID = bin_to_int(STR);
 
-       if (strcmp(cutChar(RULE_ID, 3), "111") != 0) {
+       if (strcmp(cutChar(STR, 3), "111") != 0) {
            RULE_ID_SIZE = 3;
            T = 0;
            M = 2;
@@ -40,7 +40,7 @@ public:
            U = 3;
        }
 
-       else if (strcmp(cutChar(RULE_ID,6),"111111") != 0){
+       else if (strcmp(cutChar(STR,6),"111111") != 0){
            RULE_ID_SIZE = 6;
            T=0;
            M=2;

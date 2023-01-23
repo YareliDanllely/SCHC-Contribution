@@ -28,3 +28,6 @@ target_link_libraries(ruleTest Entities)
 
 target_link_libraries(sigFoxProfileTest  gtest gtest_main)
 target_link_libraries(sigFoxProfileTest Entities)
+
+target_link_libraries(headerTest  gtest gtest_main)
+target_link_libraries(headerTest Messages)
