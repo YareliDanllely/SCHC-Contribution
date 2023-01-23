@@ -31,3 +31,6 @@ target_link_libraries(sigFoxProfileTest Entities)
 
 target_link_libraries(headerTest  gtest gtest_main)
 target_link_libraries(headerTest Messages)
+
+target_link_libraries(fragmentHeaderTest  gtest gtest_main)
+target_link_libraries(fragmentHeaderTest Messages)

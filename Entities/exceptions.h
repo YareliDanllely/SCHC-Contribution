@@ -26,41 +26,59 @@ public:
  */
 class LengthMismatchError : public SCHCError {
 public:
-    explicit LengthMismatchError(string msg);
+    explicit LengthMismatchError(const string &msg);
 };
 
 
 /**
  * Raised when any timer (SCHC sender or receiver) expires
  */
-class  SCHCTimeoutError : public SCHCError {};
+class  SCHCTimeoutError : public SCHCError {
+public:
+    explicit SCHCTimeoutError(const string &msg);
+};
 
 
 /**
  * Raised when a Rule ID cannot be selected
  * according to the SCHC Profile
  */
-class RuleSelectionError : public SCHCError {};
+class RuleSelectionError : public SCHCError {
+public:
+    explicit RuleSelectionError(const string &msg);
+};
 
 /**
  * Raised when a SCHC Sender-Abort message is sent or received
  */
-class SenderAbortError : public SCHCError {};
+class SenderAbortError : public SCHCError {
+public:
+    explicit SenderAbortError(const string &msg);
+};
 
 /*
  * Raised when a SCHC Receiver-Abort message is sent or received
  */
-class ReceiveAbortError : public SCHCError {};
+class ReceiveAbortError : public SCHCError {
+public:
+    explicit ReceiveAbortError(const string &msg);
+};
 
 /**
  * Raised when the behavior of the SCHC Sender or Receiver
  * does not match the behavior specified by the profile
  */
-class BadProfileError : public SCHCError {};
+class BadProfileError : public SCHCError {
+public:
+    explicit BadProfileError(const string &msg);
+};
 
 /**
  * Raised when the network is assumed to be unable to transmit data
  */
-class NetworkDownError : public  SCHCError {};
+class NetworkDownError : public  SCHCError {
+public:
+    explicit NetworkDownError(const string &msg);
+};
 
 #endif //SCHC_CONTRIBUTION_EXCEPTIONS_H

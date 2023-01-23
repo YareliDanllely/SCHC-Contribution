@@ -132,6 +132,7 @@ bool is_monochar(char*str, char * value){
     char * pointer = str;
     int len = strlen(str);
     int counter = 0;
+    bool result;
 
     for (int i; i<len ; i++){
         if (*pointer != *value){
@@ -141,7 +142,8 @@ bool is_monochar(char*str, char * value){
         pointer++;
     }
 
-    (counter == 0 ?  true :  false);
+    (counter == 0 ?  result = true :  result = false);
+    return  result;
 
 }
 
@@ -213,9 +215,61 @@ void generate_packet(char* str, char * path){
 
 }
 
+char * zerosStr( int amount){
+    char zeros[amount+1];
+    char *pointer = zeros;
+    for (int i=0; i<amount; i++) {
+        *pointer= '0';
+        pointer++;
+    }
+    *pointer = '\0';
+
+    return returnChar(zeros);
+
+}
+
+int sumSeveralChar( vector<char*> strVector) {
+    int sum = 0;
+    for (int i=0 ; i<strVector.size();i++) {
+        sum += strlen(strVector[i]);
+    }
+    return  sum;
+}
 
 
+char * joinBinaries( vector<char*> binaries) {
+    int len = sumSeveralChar(binaries);
+    char join[len+1];
+    char *pointer = join;
+    int sizeVec = binaries.size();
 
+    for (int i=0 ; i<sizeVec ; i++) {
+        char *pBinary = binaries[i];
+        for ( int j=0; j< strlen(binaries[i]); j++) {
+            *pointer = *pBinary;
+            pointer++;
+            pBinary++;
+        }
+    }
+    *pointer ='\0';
+
+    return returnChar(join);
+}
+/*
+
+int main() {
+
+    cout << "start" <<endl;
+    char firstValue[] = "10101";
+    char secondValue[] = "101";
+    char result[] = "10101101";
+    vector<char*> test = {firstValue,secondValue};
+    printf("%s",joinBinaries(test));
+
+return 0;
+}
+
+*/
 
 
 

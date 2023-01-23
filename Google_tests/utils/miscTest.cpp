@@ -118,3 +118,28 @@ TEST(cutCharTest, miscTes){
     ASSERT_EQ(strcmp(resultTestTwo, cutChar(strTest,5)),0);
 }
 
+TEST(zerosStrTest, miscTest) {
+    char result[] = "00000";
+    ASSERT_EQ(strcmp(zerosStr(5),result),0);
+
+    char resultTwo[] = "000";
+    ASSERT_EQ(strcmp(zerosStr(3),resultTwo),0);
+}
+
+
+TEST(sumSeveralCharTest, miscTest) {
+    char firstValue[] = "10101";
+    char secondValue[] = "101";
+    vector<char*> test = {firstValue,secondValue};
+    ASSERT_EQ(8, sumSeveralChar(test));
+}
+
+TEST(joinBinariesTest, miscTest) {
+    char firstValue[] = "10101";
+    char secondValue[] = "101";
+    char result[] = "10101101";
+    vector<char*> test = {firstValue,secondValue};
+    ASSERT_EQ(strcmp(joinBinaries(test),result),0);
+}
+
+

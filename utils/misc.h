@@ -31,7 +31,7 @@ char * zfill(char * str, int n);
 
 /**
  * Adds zeroes at the end of a string until it completes
-    the desired length.
+ * the desired length.
  * @param str
  * @param n
  * @return char with zeros in the end
@@ -108,6 +108,29 @@ map<int,char> invert_dict(map<char,int> m);
  * @param path
  */
 void generate_packet(char* str, char * path);
+
+
+/**
+ * return a char with a number amount of zeros
+ * @param zeros
+ * @return
+ */
+char * zerosStr( int amount);
+
+
+/**
+ * return the sum of several char stored in a vector
+ * @return
+ */
+int sumSeveralChar( vector<char*>);
+
+
+/**
+ * join binary numbers stored in a vector
+ * @param binaries
+ * @return
+ */
+char * joinBinaries( vector<char*> binaries);
 
 
 #endif //SCHC_CONTRIBUTION_MISC_H

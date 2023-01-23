@@ -14,6 +14,7 @@ add_executable(dbTest Google_tests/db/dbTest.cpp)
 add_executable(ruleTest Google_tests/Entities/ruleTest.cpp)
 add_executable(sigFoxProfileTest Google_tests/Entities/sigFoxProfileTest.cpp)
 add_executable(headerTest Google_tests/Messages/headerTest.cpp)
+add_executable(fragmentHeaderTest Google_tests/Messages/fragmentHeaderTest.cpp)
 ##
 # Specifies include directories
 ##
