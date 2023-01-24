@@ -114,8 +114,8 @@ TEST(cutCharTest, miscTes){
     char resultTest[] = "110";
     char resultTestTwo[] = "11010";
 
-    ASSERT_EQ(strcmp(resultTest, cutChar(strTest,3)),0);
-    ASSERT_EQ(strcmp(resultTestTwo, cutChar(strTest,5)),0);
+    ASSERT_EQ(strcmp(resultTest, cutChar(strTest,0,3)),0);
+    ASSERT_EQ(strcmp(resultTestTwo, cutChar(strTest,0,5)),0);
 }
 
 TEST(zerosStrTest, miscTest) {
@@ -142,4 +142,23 @@ TEST(joinBinariesTest, miscTest) {
     ASSERT_EQ(strcmp(joinBinaries(test),result),0);
 }
 
+TEST(getValueTest, miscTest) {
+    char firstValue[] = "10";
+    char secondValue[] = "101";
+    char notValue[] = "1010";
+
+    map<char*,int> test = {{firstValue,3},{secondValue,5}};
+    ASSERT_EQ(getMapValue(test,firstValue,9),3);
+    ASSERT_EQ(getMapValue(test,notValue,10),10);
+}
+
+
+TEST(itosTest, miscTest) {
+    char firstValue[] = "65";
+    char secondValue[] = "105";
+
+    ASSERT_EQ(strcmp(firstValue,itos(65)),0);
+    ASSERT_EQ(strcmp(secondValue,itos(105)),0);
+
+}
 

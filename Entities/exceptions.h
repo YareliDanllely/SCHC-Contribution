@@ -46,6 +46,7 @@ public:
 class RuleSelectionError : public SCHCError {
 public:
     explicit RuleSelectionError(const string &msg);
+
 };
 
 /**

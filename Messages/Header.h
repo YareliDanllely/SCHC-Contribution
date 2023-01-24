@@ -41,10 +41,6 @@ public:
         WINDOW_NUMBER = bin_to_int(w);
     }
 
-    /**
-     * to_binary method
-     */
-
 };
 
 

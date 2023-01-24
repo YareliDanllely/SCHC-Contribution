@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include<math.h>
 #include <map>
+
+#include <sstream>
 #include <stdexcept>
 #include "misc.h"
 
@@ -109,14 +111,25 @@ vector<int> find(char* str, char *search){
     return values;
 }
 
-char * cutChar(char * str, int cutter){
+char * cutChar(char * str, int top ,int end){
     int size = strlen(str);
     char strCpy[size+1];
     strcpy(strCpy,str);
-    char * pointer = strCpy;
-    pointer += cutter;
-    *pointer = '\0';
-    return returnChar(strCpy);
+
+    int sizeResult = end-top;
+
+    char result[sizeResult + 1];
+    char *pointer = strCpy + top;
+    char *pResult = result;
+
+    for (int i = 0; i < sizeResult; i++) {
+        *pResult = *pointer;
+        pResult++;
+        pointer++;
+    }
+    *pResult = '\0';
+    return returnChar(result);
+
 
 }
 
@@ -255,23 +268,28 @@ char * joinBinaries( vector<char*> binaries) {
 
     return returnChar(join);
 }
-/*
 
-int main() {
+int getMapValue(map <char *, int> map1, char *lookFor ,int value){
+    auto it = map1.find(lookFor);
 
-    cout << "start" <<endl;
-    char firstValue[] = "10101";
-    char secondValue[] = "101";
-    char result[] = "10101101";
-    vector<char*> test = {firstValue,secondValue};
-    printf("%s",joinBinaries(test));
+    if ( it == map1.end()) {
+        return value;
+    }
 
-return 0;
+    else {
+        return it->second;
+    }
+
+
 }
 
-*/
+char * itos (int value) {
+    stringstream  ss;
+    ss << value;
+    string s = ss.str();
+    char * result = &s[0];
+    return result;
 
-
-
+}
 
 

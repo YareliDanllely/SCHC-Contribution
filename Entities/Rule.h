@@ -31,7 +31,7 @@ public:
         STR = ruleId;
         ID = bin_to_int(STR);
 
-       if (strcmp(cutChar(STR, 3), "111") != 0) {
+       if (strcmp(cutChar(STR,0,3), "111") != 0) {
            RULE_ID_SIZE = 3;
            T = 0;
            M = 2;
@@ -40,7 +40,7 @@ public:
            U = 3;
        }
 
-       else if (strcmp(cutChar(STR,6),"111111") != 0){
+       else if (strcmp(cutChar(STR,0,6),"111111") != 0){
            RULE_ID_SIZE = 6;
            T=0;
            M=2;
@@ -78,14 +78,14 @@ public:
     static Rule from_hex(char * str) {
 
         char * as_bin = hex_to_bin(str);
-        char * firstByte = cutChar(as_bin,8);
-        char * rule_id = cutChar(firstByte,3);
+        char * firstByte = cutChar(as_bin,0,8);
+        char * rule_id = cutChar(firstByte,0,3);
         char value[] = "1";
         if (is_monochar(rule_id,value)) {
-            rule_id = cutChar(firstByte,6);
+            rule_id = cutChar(firstByte,0,6);
 
             if (is_monochar(rule_id,value)) {
-                rule_id = cutChar(firstByte,8);
+                rule_id = cutChar(firstByte,0,8);
             }
         }
 

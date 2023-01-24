@@ -61,7 +61,7 @@ vector<int> find(char* str, char *search);
  * @param str
  * @return cut char
  */
-char * cutChar(char * str, int cutter);
+char * cutChar(char * str, int top ,int end);
 
 /**
  * return a char using malloc
@@ -132,5 +132,20 @@ int sumSeveralChar( vector<char*>);
  */
 char * joinBinaries( vector<char*> binaries);
 
+/**
+ * look for a specific key and return its value otherwise
+ * return value
+ * @param map1
+ * @param value
+ * @return
+ */
+int getMapValue(map <char *, int> map1, char *lookFor, int value);
+
+/**
+ * converts an int value into a char *
+ * @param value
+ * @return
+ */
+char * itos (int value);
 
 #endif //SCHC_CONTRIBUTION_MISC_H
