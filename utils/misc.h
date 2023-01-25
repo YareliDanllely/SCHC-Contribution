@@ -115,7 +115,7 @@ void generate_packet(char* str, char * path);
  * @param zeros
  * @return
  */
-char * zerosStr( int amount);
+char * severalChar( int amount, char * character);
 
 
 /**

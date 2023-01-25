@@ -115,21 +115,28 @@ char * cutChar(char * str, int top ,int end){
     int size = strlen(str);
     char strCpy[size+1];
     strcpy(strCpy,str);
-
     int sizeResult = end-top;
 
-    char result[sizeResult + 1];
-    char *pointer = strCpy + top;
-    char *pResult = result;
+    char emptyChar[] = "\0";
 
-    for (int i = 0; i < sizeResult; i++) {
-        *pResult = *pointer;
-        pResult++;
-        pointer++;
+    if (top> size) {
+        return returnChar(emptyChar);
     }
-    *pResult = '\0';
-    return returnChar(result);
+    else {
 
+        char result[sizeResult + 1];
+        char *pointer = strCpy + top;
+        char *pResult = result;
+
+        for (int i = 0; i < sizeResult; i++) {
+            *pResult = *pointer;
+            pResult++;
+            pointer++;
+        }
+        *pResult = '\0';
+        return returnChar(result);
+
+    }
 
 }
 
@@ -141,14 +148,21 @@ char * returnChar(char * str){
 }
 
 
-bool is_monochar(char*str, char * value){
-    char * pointer = str;
-    int len = strlen(str);
+bool is_monochar(char *str, char *value){
+
+    int size = strlen(str);
+    char strCpy[size+1];
+    strcpy(strCpy,str);
+
+    char * pointer = strCpy;
+    char * pValue = value;
     int counter = 0;
     bool result;
 
-    for (int i; i<len ; i++){
-        if (*pointer != *value){
+
+
+    for (int i=0; i<size ; i++){
+        if (*pointer != *pValue){
             counter = 1;
             break;
         }
@@ -228,11 +242,11 @@ void generate_packet(char* str, char * path){
 
 }
 
-char * zerosStr( int amount){
+char * severalChar(int amount, char * character){
     char zeros[amount+1];
     char *pointer = zeros;
     for (int i=0; i<amount; i++) {
-        *pointer= '0';
+        *pointer= *character;
         pointer++;
     }
     *pointer = '\0';

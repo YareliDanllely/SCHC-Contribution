@@ -17,6 +17,9 @@ add_executable(headerTest Google_tests/Messages/headerTest.cpp)
 add_executable(fragmentHeaderTest Google_tests/Messages/fragmentHeaderTest.cpp)
 add_executable(ACKHeaderTest Google_tests/Messages/ACKHeaderTest.cpp)
 add_executable(fragmentTest Google_tests/Messages/fragmentTest.cpp)
+add_executable(senderAbortTest Google_tests/Messages/senderAbortTest.cpp)
+
+
 
 
 ##
@@ -81,6 +84,7 @@ add_subdirectory(Entities)
 add_subdirectory(Messages)
 
 
+
 ##
 # Add target link
 ##
@@ -91,6 +95,4 @@ target_link_libraries(nestedDictTest utils)
 target_link_libraries(sigFoxSocketTest sockets)
 target_link_libraries(ruleTest Entities)
 target_link_libraries(sigFoxProfileTest Entities)
-
-
 

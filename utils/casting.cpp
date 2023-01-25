@@ -16,18 +16,15 @@ int bin_to_int(char * bin) {
     }
 
     catch (const invalid_argument& ia) {
-        //std::cerr << "Invalid argument: " << ia.what() << std::endl;
         return -1;
     }
 
     catch (const out_of_range& oor) {
-        //std::cerr << "Out of Range error: " << oor.what() << std::endl;
         return -2;
     }
 
     catch (const exception& e)
     {
-        //std::cerr << "Undefined error: " << e.what() << std::endl;
         return -3;
     }
 }

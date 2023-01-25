@@ -44,15 +44,18 @@ TEST(findTestTest,miscTest){
 TEST(isMonarchTest, miscTest) {
     char strTest[] = "1111111";
     char searchTwo[] = "0";
-    ASSERT_FALSE(is_monochar(strTest,searchTwo));
 
-}
+    cout <<is_monochar(strTest,searchTwo)<<endl;
 
-TEST(isMonarchTestTwoTest, miscTest) {
-    char strTest[] = "1111111";
     char search[] = "1";
     ASSERT_TRUE(is_monochar(strTest,search));
+
+    char strTestTwo[] = "101";
+    ASSERT_FALSE(is_monochar(strTestTwo,search));
+
 }
+
+
 
 TEST(roundTONextMultipleTest,misc) {
     ASSERT_EQ(14, round_to_next_multiple(8,7));
@@ -118,12 +121,14 @@ TEST(cutCharTest, miscTes){
     ASSERT_EQ(strcmp(resultTestTwo, cutChar(strTest,0,5)),0);
 }
 
-TEST(zerosStrTest, miscTest) {
+TEST(severalCharTest, miscTest) {
+    char charTest[] = "0";
     char result[] = "00000";
-    ASSERT_EQ(strcmp(zerosStr(5),result),0);
+    ASSERT_EQ(strcmp(severalChar(5,charTest),result),0);
 
-    char resultTwo[] = "000";
-    ASSERT_EQ(strcmp(zerosStr(3),resultTwo),0);
+    char resultTwo[] = "111";
+    char charTestTwo[] = "1";
+    ASSERT_EQ(strcmp(severalChar(3,charTestTwo),resultTwo),0);
 }
 
 

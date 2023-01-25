@@ -9,14 +9,15 @@ public:
     char * W;
     char * C;
 
-    ACKHeader(SigFoxProfile profile, char *dtag, char *w, char *c) : Header(profile,dtag,w) ,PROFILE(profile) , C(c) {
+    /**
+     * defining constructor and attributes
+     * @param profile
+     * @param dtag
+     * @param w
+     * @param c
+     */
 
-        if (strlen(c) != 1) {
-            throw LengthMismatchError("C bit mus be of length 1");
-        }
-
-        C=c;
-    }
+    ACKHeader(SigFoxProfile profile, char *dtag, char *w, char *c) ;
 
 };
 

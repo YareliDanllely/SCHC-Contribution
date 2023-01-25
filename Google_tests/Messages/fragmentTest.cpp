@@ -20,6 +20,7 @@ TEST(initFragmentTest, fragmentTest) {
 
 }
 
+
 TEST(initFragmentTestOne, fragmentTest) {
 
     char b[] = "00010111100010001000100010001000";
@@ -60,7 +61,7 @@ TEST(toBinTest, fragmentTest) {
     char *h = bin_to_hex(b);
     Fragment fragment = fragment.from_hex(h);
 
-    ASSERT_EQ(strcmp(b,fragment.to_bin(16)),0);
+    ASSERT_EQ(strcmp(b,fragment.to_bin()),0);
 }
 
 TEST(isAllOneTest, fragmentTest) {
@@ -68,11 +69,11 @@ TEST(isAllOneTest, fragmentTest) {
     char *h = bin_to_hex(b);
     Fragment fragment = fragment.from_hex(h);
 
-    ASSERT_TRUE(fragment.is_all_one(16));
+    ASSERT_TRUE(fragment.is_all_one());
 }
 
 TEST(isAllZeroTest, fragmentTest) {
-    char b[] = "00010111100000000100010001000100";
+    char b[] = "00010000100000000100010001000100";
     char *h = bin_to_hex(b);
     Fragment fragment = fragment.from_hex(h);
 
@@ -86,4 +87,36 @@ TEST(isAllZeroFalseTest, fragmentTest) {
     Fragment fragment = fragment.from_hex(h);
 
     ASSERT_FALSE(fragment.is_all_zero());
+}
+
+TEST(expectsAckTest, fragmentTest) {
+    char b[] = "00010000100000000100010001000100";
+    char *h = bin_to_hex(b);
+    Fragment fragment = fragment.from_hex(h);
+
+    ASSERT_TRUE(fragment.expects_ack());
+
+    char bin[] = "00010101100000000100010001000100";
+    char *hex = bin_to_hex(bin);
+    Fragment fragmentTwo = fragmentTwo.from_hex(hex);
+
+    ASSERT_FALSE(fragmentTwo.expects_ack());
+
+}
+
+TEST(senderAbortTest, fragmentTest) {
+    char b[] = "00011111";
+    char *h = bin_to_hex(b);
+    Fragment fragment = fragment.from_hex(h);
+
+    ASSERT_TRUE(fragment.is_sender_abort());
+}
+
+
+TEST(senderAbortTestTwo, fragmentTest) {
+    char b[] = "00011111100000000100010001000100";
+    char *h = bin_to_hex(b);
+    Fragment fragment = fragment.from_hex(h);
+
+    ASSERT_FALSE(fragment.is_sender_abort());
 }
