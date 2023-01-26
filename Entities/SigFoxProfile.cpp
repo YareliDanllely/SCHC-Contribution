@@ -1,15 +1,16 @@
 #include "SigFoxProfile.h"
 
+/*
 
 SigFoxProfile::SigFoxProfile(char *direction, char *mode, Rule rule) : RULE(rule){
 
     DIRECTION = direction;
     MODE = mode;
 
-    SigFoxProfile::MAX_ACK_REQUESTS = ::MAX_ACK_REQUESTS;
-    SigFoxProfile::RETRANSMISSION_TIMEOUT = ::RETRANSMISSION_TIMEOUT;
-    SigFoxProfile::INACTIVITY_TIMEOUT = ::INACTIVITY_TIMEOUT;
-    SigFoxProfile::SIGFOX_DL_TIMEOUT = ::SIGFOX_DL_TIMEOUT;
+    SigFoxProfile::MAX_ACK_REQUESTS_ = MAX_ACK_REQUESTS;
+    SigFoxProfile::RETRANSMISSION_TIMEOUT_ = RETRANSMISSION_TIMEOUT;
+    SigFoxProfile::INACTIVITY_TIMEOUT_ = INACTIVITY_TIMEOUT;
+    SigFoxProfile::SIGFOX_DL_TIMEOUT_ = SIGFOX_DL_TIMEOUT;
 
     char direct[]= "UPLINK";
     char mod[] = "ACK ON ERROR";
@@ -36,4 +37,4 @@ SigFoxProfile::SigFoxProfile(char *direction, char *mode, Rule rule) : RULE(rule
     }
 
 
-}
+}*/

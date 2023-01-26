@@ -5,11 +5,8 @@ project(Google_tests)
 add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-
-
 target_link_libraries(castingTest  gtest gtest_main)
 target_link_libraries(castingTest utils)
-
 
 target_link_libraries(miscTest  gtest gtest_main)
 target_link_libraries(miscTest utils)
@@ -41,5 +38,3 @@ target_link_libraries(ACKHeaderTest Messages)
 target_link_libraries(fragmentTest  gtest gtest_main)
 target_link_libraries(fragmentTest Messages)
 
-target_link_libraries(senderAbortTest  gtest gtest_main)
-target_link_libraries(senderAbortTest Messages)

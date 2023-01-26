@@ -1,23 +1,22 @@
 #ifndef SCHC_CONTRIBUTION_SCHC_H
 #define SCHC_CONTRIBUTION_SCHC_H
 
-
-char FR_MODE[] = "ACK ON ERROR";
-int RETRANSMISSION_TIMEOUT = 100;  /* in seconds */
-int SIGFOX_DL_TIMEOUT = 60; /* in seconds */
-int INACTIVITY_TIMEOUT = 500;  /* in seconds */
-int MAX_ACK_REQUESTS = 5;
-int L2_WORD_SIZE = 8;
-int DELAY_BETWEEN_FRAGMENTS = 10; /* in seconds */
+extern char FR_MODE[];
+extern int RETRANSMISSION_TIMEOUT ;  /* in seconds */
+extern int SIGFOX_DL_TIMEOUT; /* in seconds */
+extern int INACTIVITY_TIMEOUT;  /* in seconds */
+extern int MAX_ACK_REQUESTS;
+extern int L2_WORD_SIZE;
+extern int DELAY_BETWEEN_FRAGMENTS; /* in seconds */
 
 /* Sender config */
-bool ENABLE_MAX_ACK_REQUESTS = true;
+extern bool ENABLE_MAX_ACK_REQUESTS ;
 
 /* Receiver config */
-bool RESET_DATA_AFTER_REASSEMBLY = false;
-bool CHECK_FOR_CALLBACK_RETRIES = true;
-bool DISABLE_INACTIVITY_TIMEOUT = false;
+extern bool RESET_DATA_AFTER_REASSEMBLY ;
+extern bool CHECK_FOR_CALLBACK_RETRIES ;
+extern bool DISABLE_INACTIVITY_TIMEOUT;
 
-char RECEIVER_URL[] = "http://localhost:5000/receive";
+extern char RECEIVER_URL[];
 
 #endif //SCHC_CONTRIBUTION_SCHC_H

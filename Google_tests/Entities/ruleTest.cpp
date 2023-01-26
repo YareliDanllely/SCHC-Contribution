@@ -44,8 +44,6 @@ TEST(createRuleTestTwo, ruleTest) {
 }
 
 
-
-
 TEST(fromHexTest, ruleTest) {
     char strId[] = "10101";
     char ruleId[] = "000";

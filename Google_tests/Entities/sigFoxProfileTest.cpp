@@ -45,13 +45,13 @@ TEST(createSigFoxProfileTest, SigFoxProfileTest) {
         }
     }
 
-    ASSERT_EQ(profile.UPLINK_MTU, 96);
-    ASSERT_EQ(profile.DOWNLINK_MTU, 64);
+    ASSERT_EQ(profile.UPLINK_MTU_, 96);
+    ASSERT_EQ(profile.DOWNLINK_MTU_, 64);
 
-    ASSERT_EQ(profile.MAX_ACK_REQUESTS, 5);
-    ASSERT_EQ(profile.RETRANSMISSION_TIMEOUT, 100);
-    ASSERT_EQ(profile.INACTIVITY_TIMEOUT, 500);
-    ASSERT_EQ(profile.SIGFOX_DL_TIMEOUT, 60);
+    ASSERT_EQ(profile.MAX_ACK_REQUESTS_, 5);
+    ASSERT_EQ(profile.RETRANSMISSION_TIMEOUT_, 100);
+    ASSERT_EQ(profile.INACTIVITY_TIMEOUT_, 500);
+    ASSERT_EQ(profile.SIGFOX_DL_TIMEOUT_, 60);
 
     ASSERT_EQ(profile.RULE_ID_SIZE, rule.RULE_ID_SIZE);
     ASSERT_EQ(profile.MAX_WINDOW_NUMBER, 4);

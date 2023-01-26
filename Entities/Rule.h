@@ -27,8 +27,7 @@ public:
      */
 
 
-   Rule( char *ruleId) ;
-
+   Rule(char *ruleId);
 
     /**
      * Parses the Rule ID of the given hex string,
@@ -36,8 +35,8 @@ public:
      * @param str
      * @return
      */
-    static Rule from_hex(char * str) ;
 
+    static Rule from_hex(char *str) ;
 };
 
 

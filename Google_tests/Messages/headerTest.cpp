@@ -2,6 +2,7 @@
 #include "SigFoxProfile.h"
 #include "Rule.h"
 #include "Header.h"
+#include "schc.h"
 
 TEST(initHeaderTest, headerTest) {
 

@@ -22,7 +22,9 @@ public:
      * join binaries attributes
      * @return
      */
-    char * to_binary() ;
+    char * to_binary();
+
+
 
 };
 

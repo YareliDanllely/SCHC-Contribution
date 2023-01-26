@@ -6,7 +6,7 @@ set(HEADER_FILES
         exceptions.h
         )
 
-set(SOURCE_FILES
+set(HEADER_FILES
        Rule.cpp
         SigFoxProfile.cpp
         exceptions.cpp
@@ -15,3 +15,4 @@ set(SOURCE_FILES
 
 add_library(Entities STATIC ${SOURCE_FILES} ${HEADER_FILES})
 target_link_libraries(Entities utils)
+target_link_libraries(Entities config)

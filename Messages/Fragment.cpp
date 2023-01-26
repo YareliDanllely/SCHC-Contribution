@@ -16,7 +16,7 @@ char *Fragment::to_bin() {
 
 bool Fragment::is_all_one(){
     char monoChar[] = "1";
-    char payValue[] = "b ";
+    char payValue[] = "\0";
     if (not is_monochar(HEADER.FCN,monoChar)) {
         return false;
     }
@@ -41,13 +41,11 @@ bool Fragment::expects_ack()  {
 
 bool Fragment::is_sender_abort()  {
     char monoChar[] = "1";
-    char payValue[] = "b ";
-    cout << 1 << endl;
+    char payValue[] = "\0";
     if (not is_monochar(HEADER.FCN,monoChar) ||  not is_monochar(HEADER.W,monoChar)) {
         return false;
     }
     if (strcmp(PAYLOAD, payValue) == 0 ) {
-        cout << 3 << endl;
         return strlen(to_bin()) < PROFILE.RULE.ALL1_HEADER_LENGTH;
     }
     cout << 5 << endl;
@@ -131,3 +129,15 @@ vector<char *> Fragment::get_indices()  {
     vector <char*> result = {w_index,f_index};
     return result;
 }
+
+
+Fragment Fragment::from_file(char * path){
+
+    basic_json json;
+    json::
+
+}
+
+
+
+

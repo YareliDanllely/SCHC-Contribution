@@ -2,6 +2,7 @@
 #include "SigFoxProfile.h"
 #include "Rule.h"
 #include "FragmentHeader.h"
+#include "schc.h"
 using namespace std;
 
 TEST(initFragmentTest, FragmentHeaderTest ) {

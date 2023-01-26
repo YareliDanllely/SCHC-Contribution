@@ -21,7 +21,7 @@ public:
      * @param w
      */
 
-    Header(SigFoxProfile profile, char *dtag, char *w ) ;
+    Header(SigFoxProfile profile, char *dtag, char *w );
 
 
 };

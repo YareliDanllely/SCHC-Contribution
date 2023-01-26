@@ -2,6 +2,7 @@
 #include "SenderAbort.h"
 
 
+/*
 TEST(initSenderAbortTest, senderAbortTest) {
     char b[] = "00010101100010001000100010001000";
     char *h = bin_to_hex(b);
@@ -13,4 +14,4 @@ TEST(initSenderAbortTest, senderAbortTest) {
     ASSERT_EQ(fragment.HEADER.RULE_ID, abort.HEADER.RULE_ID);
 
 
-}
+}*/

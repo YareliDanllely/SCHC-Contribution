@@ -17,44 +17,6 @@ add_executable(headerTest Google_tests/Messages/headerTest.cpp)
 add_executable(fragmentHeaderTest Google_tests/Messages/fragmentHeaderTest.cpp)
 add_executable(ACKHeaderTest Google_tests/Messages/ACKHeaderTest.cpp)
 add_executable(fragmentTest Google_tests/Messages/fragmentTest.cpp)
-add_executable(senderAbortTest Google_tests/Messages/senderAbortTest.cpp)
-
-
-
-
-##
-# Specifies include directories
-##
-
-target_include_directories (
-        castingTest
-        PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/utils
-)
-
-target_include_directories (
-        miscTest
-        PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/utils
-)
-
-target_include_directories (
-        nestedDictTest
-        PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/utils
-)
-
-target_include_directories (
-        sigFoxSocketTest
-        PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/sockets
-)
-
-target_include_directories (
-        ruleTest
-        PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/Entities
-)
 
 
 
@@ -84,15 +46,8 @@ add_subdirectory(Entities)
 add_subdirectory(Messages)
 
 
+file(GLOB source_files CONFIGURE_DEPENDS
+        json.hpp
+        )
 
-##
-# Add target link
-##
-
-target_link_libraries(castingTest utils)
-target_link_libraries(miscTest utils)
-target_link_libraries(nestedDictTest utils)
-target_link_libraries(sigFoxSocketTest sockets)
-target_link_libraries(ruleTest Entities)
-target_link_libraries(sigFoxProfileTest Entities)
 

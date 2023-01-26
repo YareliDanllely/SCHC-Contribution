@@ -1,4 +1,5 @@
 
+
 #include "FragmentHeader.h"
 
 FragmentHeader::FragmentHeader(SigFoxProfile profile, char *dtag, char *w,char *fcn, char *rcs) : Header(profile,dtag,w), FCN(fcn), RCS(rcs) {

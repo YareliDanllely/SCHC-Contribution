@@ -1,8 +1,8 @@
 #include "Rule.h"
+#include "schc.h"
 
 
-Rule::Rule(char *ruleId) : STR(ruleId ) {
-
+Rule::Rule(char *ruleId) : STR(ruleId){
 
     ID = bin_to_int(STR);
 
@@ -58,5 +58,6 @@ Rule Rule::from_hex(char *str) {
     }
     return  Rule(rule_id);
 }
+
 
 

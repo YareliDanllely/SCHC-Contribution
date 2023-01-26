@@ -1,12 +1,11 @@
-project(Entities)
-include(FetchContent)
+project(Messages)
+
 
 set(HEADER_FILES
         Header.h
         FragmentHeader.h
         ACKHeader.h
         Fragment.h
-        SenderAbort.h
         )
 
 set(SOURCE_FILES
@@ -14,10 +13,9 @@ set(SOURCE_FILES
         FragmentHeader.cpp
         ACKHeader.cpp
         Fragment.cpp
-        SenderAbort.cpp
+        json.hpp
         )
 
-include_directories(${json_SOURCE_DIR}/include)
 
 
 add_library(Messages STATIC ${SOURCE_FILES} ${HEADER_FILES})
