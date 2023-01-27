@@ -21,7 +21,7 @@ bool Fragment::is_all_one(){
         return false;
     }
     if (strcmp(PAYLOAD, payValue)==0) {
-        return (strlen(to_bin()) == PROFILE.RULE.ALL1_HEADER_LENGTH);
+        return (strlen(HEADER.to_binary()) == PROFILE.RULE.ALL1_HEADER_LENGTH);
     }
 
     return true;
@@ -46,9 +46,8 @@ bool Fragment::is_sender_abort()  {
         return false;
     }
     if (strcmp(PAYLOAD, payValue) == 0 ) {
-        return strlen(to_bin()) < PROFILE.RULE.ALL1_HEADER_LENGTH;
+        return strlen(HEADER.to_binary()) < PROFILE.RULE.ALL1_HEADER_LENGTH;
     }
-    cout << 5 << endl;
     return false;
 }
 
@@ -130,13 +129,6 @@ vector<char *> Fragment::get_indices()  {
     return result;
 }
 
-
-Fragment Fragment::from_file(char * path){
-
-    basic_json json;
-    json::
-
-}
 
 
 

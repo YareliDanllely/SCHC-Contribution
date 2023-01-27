@@ -38,3 +38,5 @@ target_link_libraries(ACKHeaderTest Messages)
 target_link_libraries(fragmentTest  gtest gtest_main)
 target_link_libraries(fragmentTest Messages)
 
+target_link_libraries(senderAbortTest  gtest gtest_main)
+target_link_libraries(senderAbortTest Messages)

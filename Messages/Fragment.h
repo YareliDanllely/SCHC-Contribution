@@ -1,7 +1,6 @@
 #ifndef SCHC_CONTRIBUTION_FRAGMENT_H
 #define SCHC_CONTRIBUTION_FRAGMENT_H
 #include "FragmentHeader.h"
-#include "json.hpp"
 #include "schc.h"
 
 using namespace std;
