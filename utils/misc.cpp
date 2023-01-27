@@ -11,9 +11,6 @@
 
 using namespace std;
 
-void freeMemory(char * memory){
-    free(memory);
-}
 
 char * zfill(char * str, int n) {
     int len = strlen(str);
@@ -159,8 +156,6 @@ bool is_monochar(char *str, char *value){
     int counter = 0;
     bool result;
 
-
-
     for (int i=0; i<size ; i++){
         if (*pointer != *pValue){
             counter = 1;
@@ -258,7 +253,9 @@ char * severalChar(int amount, char * character){
 int sumSeveralChar( vector<char*> strVector) {
     int sum = 0;
     for (int i=0 ; i<strVector.size();i++) {
-        sum += strlen(strVector[i]);
+        if (strcmp("",strVector[i]) != 0){
+            sum += strlen(strVector[i]);
+        }
     }
     return  sum;
 }
@@ -271,11 +268,14 @@ char * joinBinaries( vector<char*> binaries) {
     int sizeVec = binaries.size();
 
     for (int i=0 ; i<sizeVec ; i++) {
-        char *pBinary = binaries[i];
-        for ( int j=0; j< strlen(binaries[i]); j++) {
-            *pointer = *pBinary;
-            pointer++;
-            pBinary++;
+        if (strcmp("",binaries[i])!=0) {
+            char *pBinary = binaries[i];
+            for (int j = 0; j < strlen(binaries[i]); j++) {
+                *pointer = *pBinary;
+                pointer++;
+                pBinary++;
+
+            }
         }
     }
     *pointer ='\0';

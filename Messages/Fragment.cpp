@@ -16,7 +16,7 @@ char *Fragment::to_bin() {
 
 bool Fragment::is_all_one(){
     char monoChar[] = "1";
-    char payValue[] = "\0";
+    char payValue[] = "";
     if (not is_monochar(HEADER.FCN,monoChar)) {
         return false;
     }
@@ -41,7 +41,7 @@ bool Fragment::expects_ack()  {
 
 bool Fragment::is_sender_abort()  {
     char monoChar[] = "1";
-    char payValue[] = "\0";
+    char payValue[] = "";
     if (not is_monochar(HEADER.FCN,monoChar) ||  not is_monochar(HEADER.W,monoChar)) {
         return false;
     }
@@ -54,7 +54,7 @@ bool Fragment::is_sender_abort()  {
 
 Fragment Fragment::from_hex(char *hexString) {
 
-    char emptyChar[] = "\0";
+    char emptyChar[] = "";
     char monoCharOne[] = "1";
     char monoCharZero[] = "0";
 

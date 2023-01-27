@@ -12,8 +12,8 @@ TEST(initFragmentTest, FragmentHeaderTest ) {
 
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
 
-    char emptyChar[] = "\0";
-    char dtag[] = "\0";
+    char emptyChar[] = "";
+    char dtag[] = "";
     char fcn[] = "101";
     char w[] = "10";
     char * rcs = NULL;
@@ -42,7 +42,7 @@ TEST(initFragmentTestOne, FragmentHeaderTest ) {
 
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
 
-    char dtag[] = "\0";
+    char dtag[] = "";
     char fcn[] = "101";
     char w[] = "10";
     char rcs[] = "110";
@@ -64,8 +64,8 @@ TEST(initFragmentTestTwo, FragmentHeaderTest ) {
 
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
 
-    char dtag[] = "\0";
-    char fcn[] = "101";
+    char dtag[] = "";
+    char fcn[] = "111";
     char w[] = "10";
     char rcs[] = "110";
 
@@ -84,7 +84,7 @@ TEST(toBinaryTest, FragmentHeaderTest) {
 
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
 
-    char dtag[] = "\0";
+    char dtag[] = "";
     char fcn[] = "111";
     char w[] = "10";
     char rcs[] = "110";
@@ -95,7 +95,6 @@ TEST(toBinaryTest, FragmentHeaderTest) {
 
     ASSERT_EQ(strcmp(test,header.to_binary()),0);
 
-
 }
 
 TEST(toBinaryTestTwo, FragmentHeaderTest) {
@@ -105,7 +104,7 @@ TEST(toBinaryTestTwo, FragmentHeaderTest) {
 
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
 
-    char dtag[] = "\0";
+    char dtag[] = "";
     char fcnTwo[] = "101";
     char *rcsTwo = NULL;
     char w[] = "10";

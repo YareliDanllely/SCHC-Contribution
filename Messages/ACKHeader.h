@@ -19,6 +19,12 @@ public:
 
     ACKHeader(SigFoxProfile profile, char *dtag, char *w, char *c) ;
 
+    /**
+     * join rule_id, dtag,w and c
+     * @return
+     */
+    char * to_binary();
+
 };
 
 

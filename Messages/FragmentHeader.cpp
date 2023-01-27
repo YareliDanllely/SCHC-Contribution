@@ -4,7 +4,7 @@
 
 FragmentHeader::FragmentHeader(SigFoxProfile profile, char *dtag, char *w,char *fcn, char *rcs) : Header(profile,dtag,w), FCN(fcn), RCS(rcs) {
 
-    char emptyChar[] = "\0";
+    char emptyChar[] = "";
     char monoChar[] = "1";
     char monoCharZero[] = "0";
 
@@ -20,11 +20,9 @@ FragmentHeader::FragmentHeader(SigFoxProfile profile, char *dtag, char *w,char *
 
     else {
         if(profile.U != 0 && strlen(rcs) != profile.U) {
-            cout << "2" <<endl;
             throw LengthMismatchError("RCS must be of length U");
         }
         if (not is_monochar(FCN, monoChar)) {
-            cout << "3" <<endl;
             throw BadProfileError("RCS was not None in a regular fragment (not All-1)");
         }
         RCS = rcs;

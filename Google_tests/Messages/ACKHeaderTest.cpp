@@ -29,3 +29,19 @@ TEST(initACKHeaderTest, ACKHeaderTest) {
     }
 
 }
+
+TEST(toBinaryTest, ACKHeaderTest) {
+    char ruleId[] = "000";
+    char direct[] = "UPLINK";
+    Rule ruleZero = Rule(ruleId);
+
+    SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
+    char dtag[] = "";
+    char w[] = "10";
+    char c[] = "0";
+    ACKHeader header = ACKHeader(profile,dtag,w,c);
+
+    char test1[] = "000100";
+
+    ASSERT_EQ(strcmp(test1,header.to_binary()),0);
+}

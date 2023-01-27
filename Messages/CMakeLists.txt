@@ -7,6 +7,7 @@ set(HEADER_FILES
         ACKHeader.h
         Fragment.h
         SenderAbort.h
+        ACK.h
         )
 
 set(SOURCE_FILES
@@ -15,6 +16,7 @@ set(SOURCE_FILES
         ACKHeader.cpp
         Fragment.cpp
         SenderAbort.cpp
+        ACK.cpp
         )
 
 

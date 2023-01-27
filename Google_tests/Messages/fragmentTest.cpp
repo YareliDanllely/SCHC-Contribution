@@ -9,7 +9,7 @@ TEST(initFragmentTest, fragmentTest) {
     Fragment fragment = fragment.from_hex(h);
 
     char ruleId[] = "000";
-    char emptyChar[] = "\0";
+    char emptyChar[] = "";
     char w[] = "10";
     char fcn[] = "101";
 
@@ -42,7 +42,7 @@ TEST(initFragmentTestTwo, fragmentTest) {
     Fragment fragment = fragment.from_hex(h);
 
     char ruleId[] = "000";
-    char emptyChar[] = "\0";
+    char emptyChar[] = "";
     char w[] = "10";
     char fcn[] = "111";
     char rcs[] = "100";

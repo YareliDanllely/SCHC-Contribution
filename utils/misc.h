@@ -13,11 +13,7 @@
 #include <map>
 using namespace std;
 
-/**
- * freeing memory from a pointer created with malloc
- * @param memory
- */
-void freeMemory(char * memory);
+
 
 /**
  * Adds zeroes at the beginning of a string until it completes
