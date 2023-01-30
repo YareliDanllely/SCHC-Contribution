@@ -7,7 +7,6 @@ class ACK {
 public:
     SigFoxProfile PROFILE;
     ACKHeader HEADER;
-    char *DTAG;
     char *W;
     char *C;
     char *BITMAP;

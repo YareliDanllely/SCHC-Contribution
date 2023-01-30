@@ -252,8 +252,13 @@ char * severalChar(int amount, char * character){
 
 int sumSeveralChar( vector<char*> strVector) {
     int sum = 0;
+    char emptyChar[] = "";
     for (int i=0 ; i<strVector.size();i++) {
-        if (strcmp("",strVector[i]) != 0){
+
+        if (strcmp(strVector[i],emptyChar) == 0){
+            continue;
+        }
+        else {
             sum += strlen(strVector[i]);
         }
     }
@@ -263,12 +268,17 @@ int sumSeveralChar( vector<char*> strVector) {
 
 char * joinBinaries( vector<char*> binaries) {
     int len = sumSeveralChar(binaries);
+    char emptyChar[] = "";
     char join[len+1];
     char *pointer = join;
     int sizeVec = binaries.size();
 
     for (int i=0 ; i<sizeVec ; i++) {
-        if (strcmp("",binaries[i])!=0) {
+
+        if (strcmp(binaries[i],emptyChar)==0) {
+            continue;
+        }
+        else {
             char *pBinary = binaries[i];
             for (int j = 0; j < strlen(binaries[i]); j++) {
                 *pointer = *pBinary;

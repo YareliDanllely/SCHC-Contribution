@@ -116,9 +116,13 @@ TEST(cutCharTest, miscTes){
     char strTest[] = "1101010";
     char resultTest[] = "110";
     char resultTestTwo[] = "11010";
+    char resultTestThree[] = "110";
+    char resultTestFour[] = "10";
 
     ASSERT_EQ(strcmp(resultTest, cutChar(strTest,0,3)),0);
     ASSERT_EQ(strcmp(resultTestTwo, cutChar(strTest,0,5)),0);
+    ASSERT_EQ(strcmp(resultTestThree, cutChar(strTest,0, strlen(strTest)-4)),0);
+    ASSERT_EQ(strcmp(resultTestFour, cutChar(strTest, strlen(strTest)-2, strlen(strTest))),0);
 }
 
 TEST(severalCharTest, miscTest) {

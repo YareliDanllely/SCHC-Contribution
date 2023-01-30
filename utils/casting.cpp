@@ -30,7 +30,8 @@ int bin_to_int(char * bin) {
 }
 
 char* bin_to_hex(char *bin) {
-    int i = stol(bin,NULL,2);
+    long long i = stoll(bin,0,2);
+    cout << i << endl;
     char * result= int_to_hex(i);
     return zfill(result, strlen(bin)/4);
 }

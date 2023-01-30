@@ -5,8 +5,6 @@
 class ACKHeader : public Header{
 public:
     SigFoxProfile PROFILE;
-    char * DTAG;
-    char * W;
     char * C;
 
     /**

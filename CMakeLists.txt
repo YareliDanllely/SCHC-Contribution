@@ -18,6 +18,9 @@ add_executable(fragmentHeaderTest Google_tests/Messages/fragmentHeaderTest.cpp)
 add_executable(ACKHeaderTest Google_tests/Messages/ACKHeaderTest.cpp)
 add_executable(fragmentTest Google_tests/Messages/fragmentTest.cpp)
 add_executable(senderAbortTest Google_tests/Messages/senderAbortTest.cpp)
+add_executable(ACKTest Google_tests/Messages/ACKTest.cpp)
+
+
 
 
 
@@ -45,10 +48,5 @@ add_subdirectory(sockets)
 add_subdirectory(db)
 add_subdirectory(Entities)
 add_subdirectory(Messages)
-
-
-file(GLOB source_files CONFIGURE_DEPENDS
-        json.hpp
-        )
 
 

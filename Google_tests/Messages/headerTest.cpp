@@ -10,8 +10,8 @@ TEST(initHeaderTest, headerTest) {
     char direct[] = "UPLINK";
     Rule ruleZero = Rule(ruleId);
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
-    char  dtag[] = "\0";
-    char  emptyChar[] = "\0";
+    char  dtag[] = "";
+    char  emptyChar[] = "";
     char  w[] = "10";
 
     Header header = Header(profile,dtag, w);

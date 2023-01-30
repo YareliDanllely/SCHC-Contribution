@@ -12,7 +12,7 @@ TEST(initACKHeaderTest, ACKHeaderTest) {
 
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
 
-    char dtag[] = "\0";
+    char dtag[] = "";
     char w[] = "10";
     char c[] = "0";
 
@@ -36,6 +36,7 @@ TEST(toBinaryTest, ACKHeaderTest) {
     Rule ruleZero = Rule(ruleId);
 
     SigFoxProfile profile = SigFoxProfile(direct,FR_MODE, ruleZero);
+
     char dtag[] = "";
     char w[] = "10";
     char c[] = "0";

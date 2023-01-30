@@ -6,7 +6,7 @@ TEST(initSenderAbortTest, senderAbortTest) {
     char b[] = "00010101100010001000100010001000";
     char w[] = "11";
     char fcn[] = "111";
-    char rcs[] = "\0";
+    char rcs[] = "";
     char *h = bin_to_hex(b);
     Fragment fragment = fragment.from_hex(h);
 

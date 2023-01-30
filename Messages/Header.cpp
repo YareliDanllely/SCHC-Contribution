@@ -10,8 +10,8 @@ Header:: Header(SigFoxProfile profile, char *dtag, char *w ) : PROFILE(profile) 
     RULE_ID = profile.RULE.STR;
 
     if (profile.T == 0) {
-        char value[] = "\0";
-        DTAG = value;
+        char emptyChar[] = "";
+        DTAG = emptyChar;
     }
     else if (strlen(dtag) != profile.T) {
         throw LengthMismatchError("DTAG must be of length T");

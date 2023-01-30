@@ -14,12 +14,14 @@ TEST(binToInt,castingTest) {
 
 
 TEST(binToHex,castingTest) {
+    char b[] = "0001001111001000000000000000000000000000000000000000000000000000";
     char  binTest[] = "11010010";
     char  resultBinTest[] = "d2";
     char  secondBinTest[] = "000000011010010";
     char  secondResultBinTest[] = "0d2";
     ASSERT_EQ(strcmp(resultBinTest, bin_to_hex(binTest)),0);
     ASSERT_EQ(strcmp(secondResultBinTest, bin_to_hex(secondBinTest)),0);
+    ::printf("%s", bin_to_hex(b));
 }
 
 
