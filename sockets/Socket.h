@@ -25,32 +25,25 @@ public:
      int TIMEOUT = 60;
      int PORT = 5000;
      int SOCKET;
+
     /**
      * Sends data towards the receiver end
      * @param message
      */
-    virtual void sendMessage(char* message) {
-        send(SOCKET,message, sizeof(message),0);
-        SEQNUM +=1;
-    }
+    virtual void sendMessage(char* message);
 
     /**
        * Configures the socket to be able to receive a message after sending one
        * @param flag
        */
-
-    virtual void set_reception( bool flag) {
-        EXPECTS_ACK = flag;
-    }
+    void set_reception(bool flag);
 
     /**
      * Configures the timeout value of the socket, in seconds
      * @param timeOut
      */
+    void set_timeout(float timeOut );
 
-    virtual void set_timeout(float timeOut ){
-        TIMEOUT = timeOut;
-    }
 
 };
 

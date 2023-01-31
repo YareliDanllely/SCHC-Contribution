@@ -7,9 +7,6 @@ SigFoxProfile::SigFoxProfile(char *direction, char *mode, Rule rule) : RULE(rule
     DIRECTION = direction;
     MODE = mode;
 
-   /* UPLINK_MTU_ = 96;
-    DOWNLINK_MTU_ = 64;*/
-
     SigFoxProfile::MAX_ACK_REQUESTS_ = MAX_ACK_REQUESTS;
     SigFoxProfile::RETRANSMISSION_TIMEOUT_ = RETRANSMISSION_TIMEOUT;
     SigFoxProfile::INACTIVITY_TIMEOUT_ = INACTIVITY_TIMEOUT;

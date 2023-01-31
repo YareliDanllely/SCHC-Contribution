@@ -55,8 +55,6 @@ TEST(isMonarchTest, miscTest) {
 
 }
 
-
-
 TEST(roundTONextMultipleTest,misc) {
     ASSERT_EQ(14, round_to_next_multiple(8,7));
     ASSERT_EQ(14, round_to_next_multiple(14,7));
@@ -95,7 +93,6 @@ TEST(sectionStringTest, miscTest) {
     ASSERT_EQ(strcmp(result[3],"DDDDDD"),0);
 }
 
-/* the file is in the cmake-build-debug directory*/
 TEST(geneneratePacketTest, miscTest){
     char strTest[] = "This is a test";
     char path[] = "packetTest.txt";
@@ -135,7 +132,6 @@ TEST(severalCharTest, miscTest) {
     ASSERT_EQ(strcmp(severalChar(3,charTestTwo),resultTwo),0);
 }
 
-
 TEST(sumSeveralCharTest, miscTest) {
     char firstValue[] = "10101";
     char secondValue[] = "101";
@@ -160,7 +156,6 @@ TEST(getValueTest, miscTest) {
     ASSERT_EQ(getMapValue(test,firstValue,9),3);
     ASSERT_EQ(getMapValue(test,notValue,10),10);
 }
-
 
 TEST(itosTest, miscTest) {
     char firstValue[] = "65";

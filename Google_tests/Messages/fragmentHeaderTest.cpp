@@ -56,7 +56,6 @@ TEST(initFragmentTestOne, FragmentHeaderTest ) {
 
 }
 
-
 TEST(initFragmentTestTwo, FragmentHeaderTest ) {
     char ruleId[] = "000";
     char direct[] = "UPLINK";
@@ -74,8 +73,6 @@ TEST(initFragmentTestTwo, FragmentHeaderTest ) {
     ASSERT_EQ(strcmp(rcs,header.RCS),0);
     ASSERT_EQ(strcmp("00000",header.PADDING),0);
 }
-
-
 
 TEST(toBinaryTest, FragmentHeaderTest) {
     char ruleId[] = "000";

@@ -8,7 +8,6 @@ set(CMAKE_CXX_STANDARD 17)
 #Add executable to test
 add_executable(castingTest Google_tests/utils/castingTest.cpp)
 add_executable(miscTest Google_tests/utils/miscTest.cpp)
-add_executable(nestedDictTest Google_tests/utils/nestedDictTest.cpp)
 add_executable(sigFoxSocketTest Google_tests/sockets/sigFoxSocketTest.cpp)
 add_executable(dbTest Google_tests/db/dbTest.cpp)
 add_executable(ruleTest Google_tests/Entities/ruleTest.cpp)

@@ -25,8 +25,6 @@ public:
      * defining constructor and attributes
      * @param ruleId
      */
-
-
    Rule(char *ruleId);
 
     /**
@@ -35,7 +33,6 @@ public:
      * @param str
      * @return
      */
-
     static Rule from_hex(char *str) ;
 };
 

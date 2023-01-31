@@ -3,8 +3,6 @@
 #include <sigFoxServer.h>
 
 
-
-
 TEST(initTestClient, sigFoxSocket){
     sigFoxClient socket;
     char deviceClient[10] = "1a2b3c";
@@ -14,7 +12,6 @@ TEST(initTestClient, sigFoxSocket){
     ASSERT_FALSE(socket.EXPECTS_ACK);
     ASSERT_EQ(strcmp(socket.DEVICE,deviceClient),0);
 }
-
 
 TEST(initTestServer, sigFoxSocket){
     sigFoxServer socket;

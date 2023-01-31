@@ -14,12 +14,13 @@ using namespace std;
 
 char * zfill(char * str, int n) {
     int len = strlen(str);
+
     if (n>len) {
         int zeros = n-len;
         int fLen = zeros + len;
         char result[fLen +1];
-        char *finalResult = (char*) ::malloc(fLen+1);
         char *pointer = result;
+
         for ( int i=0; i< fLen +1 ; i++) {
             if (i<(zeros)){
                 *pointer = '0';
@@ -32,8 +33,8 @@ char * zfill(char * str, int n) {
             }
 
         }
-        strcpy(finalResult,result);
-        return finalResult;
+
+        return returnChar(result);
     }
     else {
         return str;
@@ -47,14 +48,13 @@ char * zpad(char* str, int n){
         int zeros = n-len;
         int fLen = zeros + len;
         char result[fLen +1];
-        char *finalResult = (char*) ::malloc(fLen+1);
         char *pointer = result;
+
         for ( int i=0; i< fLen ; i++) {
             if (i<(len)){
                 *pointer = *str;
                 str++;
                 pointer++;
-
             }
             else {
                 *pointer = '0';
@@ -62,8 +62,8 @@ char * zpad(char* str, int n){
             }
         }
         *pointer = '\0';
-        strcpy(finalResult,result);
-        return finalResult;
+
+        return returnChar(result);
     }
     else {
         return str;
@@ -84,8 +84,7 @@ char * replaceChar(char* str, int position, char *newChar ){
         *pointer = '\0';
         return finalResult;
     }
-
-    else{
+    else {
         char *pointer = str;
         pointer += position;
         *pointer = *newChar;
@@ -99,8 +98,7 @@ vector<int> find(char* str, char *search){
     int len = strlen(str);
     vector<int> values;
     for (int i=0; i<len; i++) {
-
-        if (*pointer == *search){
+        if (*pointer == *search) {
             values.push_back(i);
         }
         pointer++;
@@ -120,7 +118,6 @@ char * cutChar(char * str, int top ,int end){
         return returnChar(emptyChar);
     }
     else {
-
         char result[sizeResult + 1];
         char *pointer = strCpy + top;
         char *pResult = result;
@@ -132,18 +129,14 @@ char * cutChar(char * str, int top ,int end){
         }
         *pResult = '\0';
         return returnChar(result);
-
     }
-
 }
-
 
 char * returnChar(char * str){
     char * result = (char *) ::malloc(strlen(str)+1);
     strcpy(result,str);
     return result;
 }
-
 
 bool is_monochar(char *str, char *value){
 
@@ -156,8 +149,8 @@ bool is_monochar(char *str, char *value){
     int counter = 0;
     bool result;
 
-    for (int i=0; i<size ; i++){
-        if (*pointer != *pValue){
+    for (int i=0; i<size ; i++) {
+        if (*pointer != *pValue) {
             counter = 1;
             break;
         }
@@ -182,7 +175,7 @@ map<int,char> invert_dict(map<char,int> m){
         values.push_back(pair.second);
     }
     values.unique();
-    if (m.size() == values.size()){
+    if (m.size() == values.size()) {
         map <int,char> finalMap;
         for (auto const & pair: m) {
             finalMap[pair.second] =  pair.first;
@@ -206,23 +199,20 @@ vector<char*> section_char(char* str, vector<int> indices ){
         (i==numRange-1 ? largeSection = lenStr - indices[i]: largeSection= indices[i+1]-indices[i]);
 
         char section[largeSection+1];
-        char *finalSection = (char*) ::malloc(largeSection+1);
         char *pointerSection= section;
 
-        for (int j=0; j<largeSection; j++){
+        for (int j=0; j<largeSection; j++) {
             *pointerSection= *pointer;
             pointerSection++;
             pointer++;
         }
 
         *pointerSection='\0';
-        strcpy(finalSection,section);
-        sectionString.push_back(finalSection);
+        sectionString.push_back(returnChar(section));
     }
     return sectionString;
 
 }
-
 
 void generate_packet(char* str, char * path){
     ofstream myFile;
@@ -254,7 +244,6 @@ int sumSeveralChar( vector<char*> strVector) {
     int sum = 0;
     char emptyChar[] = "";
     for (int i=0 ; i<strVector.size();i++) {
-
         if (strcmp(strVector[i],emptyChar) == 0){
             continue;
         }
@@ -265,7 +254,6 @@ int sumSeveralChar( vector<char*> strVector) {
     return  sum;
 }
 
-
 char * joinBinaries( vector<char*> binaries) {
     int len = sumSeveralChar(binaries);
     char emptyChar[] = "";
@@ -274,7 +262,6 @@ char * joinBinaries( vector<char*> binaries) {
     int sizeVec = binaries.size();
 
     for (int i=0 ; i<sizeVec ; i++) {
-
         if (strcmp(binaries[i],emptyChar)==0) {
             continue;
         }
@@ -295,16 +282,12 @@ char * joinBinaries( vector<char*> binaries) {
 
 int getMapValue(map <char *, int> map1, char *lookFor ,int value){
     auto it = map1.find(lookFor);
-
     if ( it == map1.end()) {
         return value;
     }
-
     else {
         return it->second;
     }
-
-
 }
 
 char * itos (int value) {
@@ -313,7 +296,6 @@ char * itos (int value) {
     string s = ss.str();
     char * result = &s[0];
     return result;
-
 }
 
 

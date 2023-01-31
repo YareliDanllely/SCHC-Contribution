@@ -14,4 +14,3 @@ set(SOURCE_FILES
 
 
 add_library(sockets STATIC ${SOURCE_FILES} ${HEADER_FILES})
-add_executable(sigFoxServer sigFoxServer.cpp)

@@ -1,7 +1,3 @@
-//
-// Created by Usuario on 16-01-2023.
-//
-
 #ifndef SCHC_CONTRIBUTION_COMMONFILESTORAGE_H
 #define SCHC_CONTRIBUTION_COMMONFILESTORAGE_H
 
@@ -23,7 +19,7 @@ public:
      * @param path
      */
 
-    explicit CommonFileStorage(char *root) : FileStorage(root) {}
+    explicit CommonFileStorage(char *root);
 
 
 };

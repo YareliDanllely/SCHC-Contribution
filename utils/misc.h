@@ -1,7 +1,3 @@
-//
-// Created by Usuario on 10-01-2023.
-//
-
 #ifndef SCHC_CONTRIBUTION_MISC_H
 #define SCHC_CONTRIBUTION_MISC_H
 #include <string.h>
@@ -12,8 +8,6 @@
 #include <fstream>
 #include <map>
 using namespace std;
-
-
 
 /**
  * Adds zeroes at the beginning of a string until it completes

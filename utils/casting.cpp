@@ -31,13 +31,11 @@ int bin_to_int(char * bin) {
 
 char* bin_to_hex(char *bin) {
     long long i = stoll(bin,0,2);
-    cout << i << endl;
     char * result= int_to_hex(i);
     return zfill(result, strlen(bin)/4);
 }
 
-
-char* hex_to_bin(char* hex, int length ){
+char* hex_to_bin(char* hex, int length){
 
     if (length == 0) {
         length = strlen(hex)*4;
@@ -47,7 +45,6 @@ char* hex_to_bin(char* hex, int length ){
     char *result = int_to_bin(i,length);
     return result;
 }
-
 
 char* int_to_bin(int num, int length) {
     string result;
@@ -60,11 +57,10 @@ char* int_to_bin(int num, int length) {
     return returnChar(zfill(finalResult,length));
 }
 
-
-char* int_to_hex(int num) {
-    ostringstream ss;
-    ss << hex << num;
-    string hexString = ss.str();
-    char * result = &hexString[0];
-    return result;
+char * int_to_hex(int num) {
+    char buffer[100];
+    ::sprintf(buffer,"%x", num);
+    return returnChar(buffer);
 }
+
+

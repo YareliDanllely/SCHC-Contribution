@@ -11,8 +11,6 @@ target_link_libraries(castingTest utils)
 target_link_libraries(miscTest  gtest gtest_main)
 target_link_libraries(miscTest utils)
 
-target_link_libraries(nestedDictTest  gtest gtest_main)
-target_link_libraries(nestedDictTest utils)
 
 target_link_libraries(sigFoxSocketTest  gtest gtest_main)
 target_link_libraries(sigFoxSocketTest sockets)

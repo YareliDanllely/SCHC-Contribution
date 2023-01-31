@@ -1,6 +1,10 @@
 #ifndef SCHC_CONTRIBUTION_SCHC_H
 #define SCHC_CONTRIBUTION_SCHC_H
 
+/**
+ * Global variables
+ */
+
 extern char FR_MODE[];
 extern int RETRANSMISSION_TIMEOUT ;  /* in seconds */
 extern int SIGFOX_DL_TIMEOUT; /* in seconds */

@@ -20,7 +20,6 @@ TEST(initFragmentTest, fragmentTest) {
 
 }
 
-
 TEST(initFragmentTestOne, fragmentTest) {
 
     char b[] = "00010111100010001000100010001000";
@@ -33,7 +32,6 @@ TEST(initFragmentTestOne, fragmentTest) {
         ASSERT_EQ(err.message,"Padding was not all zeroes nor empty");
     }
 }
-
 
 TEST(initFragmentTestTwo, fragmentTest) {
 
@@ -53,8 +51,6 @@ TEST(initFragmentTestTwo, fragmentTest) {
     ASSERT_EQ(strcmp(fcn,fragment.HEADER.FCN),0);
     ASSERT_EQ(strcmp(rcs,fragment.HEADER.RCS),0);
 }
-
-
 
 TEST(toBinTest, fragmentTest) {
     char b[] = "00010101100010001000100010001000";
@@ -111,7 +107,6 @@ TEST(senderAbortTest, fragmentTest) {
 
     ASSERT_TRUE(fragment.is_sender_abort());
 }
-
 
 TEST(senderAbortTestTwo, fragmentTest) {
     char b[] = "00011111100000000100010001000100";

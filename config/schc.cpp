@@ -1,4 +1,3 @@
-
 #include "schc.h"
 
 char FR_MODE[] = "ACK ON ERROR";

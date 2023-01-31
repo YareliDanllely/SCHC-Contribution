@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 #include "CommonFileStorage.h"
 
-
 TEST(cretaeAFileTest, dbTest){
     char path[] = "testDb.txt";
     CommonFileStorage file(path);
@@ -15,8 +14,6 @@ TEST(joinPathTest, dbTest) {
 
     ASSERT_TRUE(file.isFile(result));
 }
-
-
 
 TEST(joinPathTestTwo, dbTest) {
     char path[] = "\0";
@@ -34,7 +31,6 @@ TEST(joinPathTestThree, dbTest) {
     ASSERT_EQ(strcmp(file.joinPath(path),path),0);
 }
 
-
 TEST(filseSizeTest, dbTest){
     char path[] = "listFilesTest";
     CommonFileStorage file(path);
@@ -42,16 +38,12 @@ TEST(filseSizeTest, dbTest){
     ASSERT_EQ(file.fileSize(pathTwo),5);
 }
 
-
-
 TEST(readFileTest, dbTest){
     char path[] = "listFilesTest";
     char test[]= "testOne.txt";
     CommonFileStorage file(path);
     ASSERT_EQ(strcmp(file.readFile(test),"hello"),0);
-   ;
 }
-
 
 TEST(writeFileTest,dbTest){
     char str[]= "test db two";
@@ -61,7 +53,6 @@ TEST(writeFileTest,dbTest){
     file.writeFile(path,str);
     ASSERT_EQ(strcmp(file.readFile(path),"test db two"),0);
 }
-
 
 TEST(isFileTest, dbTest){
     char ROOT[] = "listFilesTest";
@@ -74,8 +65,6 @@ TEST(isFileTest, dbTest){
     ASSERT_FALSE(fileTwo.isFile(pathTwo));
 }
 
-
-
 TEST(fileExistTest, dbTest) {
     char ROOT[] = "listFilesTest";
     char path[] = "testOne.txt";
@@ -86,8 +75,6 @@ TEST(fileExistTest, dbTest) {
     CommonFileStorage fileTwo(ROOT);
     ASSERT_FALSE(fileTwo.fileExists(pathTwo));
 }
-
-
 
 TEST(isFolderTest,dbTest){
     char ROOT[] = "listFilesTest";
@@ -100,7 +87,6 @@ TEST(isFolderTest,dbTest){
     ASSERT_FALSE(fileTwo.isFolder(pathTwo));
 }
 
-
 TEST(folderExistsTest, dbTest) {
     char ROOT[] = "listFilesTest";
     char path[] = "imADirectory";
@@ -110,8 +96,6 @@ TEST(folderExistsTest, dbTest) {
     char pathTwo[] = "listFilesTestTest";
     ASSERT_FALSE(file.folderExists(pathTwo));
 }
-
-
 
 TEST(createFolderTest, dbTest) {
     char ROOT[] = "listFilesTest";
@@ -132,8 +116,6 @@ TEST(createFolderTestTwo, dbTest) {
     ASSERT_TRUE(file.folderExists(test));
 }
 
-
-
 TEST(listFilesTest, dbTest) {
     char ROOT[] = "listFilesTest";
     char path[] = "imADirectory";
@@ -145,7 +127,6 @@ TEST(listFilesTest, dbTest) {
     ASSERT_EQ(strcmp(list[0],result),0);
 }
 
-
 TEST(deleteFileTest, dbTest){
     char ROOT[] = "listFilesTest";
     char path[] = "testDbDelete.txt";
@@ -153,7 +134,6 @@ TEST(deleteFileTest, dbTest){
     file.deleteFile(path);
     ASSERT_FALSE(file.isFile(file.ROOT));
 }
-
 
 TEST(deleteFolderTestOne, dbTest) {
     char ROOT[] = "listFilesTest";
