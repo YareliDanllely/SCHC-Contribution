@@ -30,8 +30,24 @@ int bin_to_int(char * bin) {
 }
 
 char* bin_to_hex(char *bin) {
-    long long i = stoll(bin,0,2);
-    char * result= int_to_hex(i);
+    vector <char*> sectionBytes = section_char(bin, sectionbytes(bin));
+    vector <char*> resultsHex;
+    int counter = 0;
+
+    for (int i =0; i<sectionBytes.size(); i++) {
+
+        int value = bin_to_int(sectionBytes[i]);
+        if ( value != 0) {
+            counter = 1;
+        }
+
+        if (counter ==1) {
+            char *valHex = int_to_hex(value);
+            resultsHex.push_back(valHex);
+        }
+    }
+
+    char *result= joinBinaries(resultsHex);
     return zfill(result, strlen(bin)/4);
 }
 
@@ -41,10 +57,12 @@ char* hex_to_bin(char* hex, int length){
         length = strlen(hex)*4;
     }
 
-    int i = stol(hex,NULL,16);
+    long long i = stoll(hex,NULL,16);
+    cout << i << endl;
     char *result = int_to_bin(i,length);
     return result;
 }
+
 
 char* int_to_bin(int num, int length) {
     string result;

@@ -91,6 +91,28 @@ TEST(sectionStringTest, miscTest) {
     ASSERT_EQ(strcmp(result[1],"BB"),0);
     ASSERT_EQ(strcmp(result[2],"CCC"),0);
     ASSERT_EQ(strcmp(result[3],"DDDDDD"),0);
+
+}
+
+TEST(sectionBytesTest, miscTest) {
+    char binTest[] = "101011000101";
+    vector <int> result = {0,4};
+
+    char binTestTwo[] = "10101110";
+    vector <int> resultTwo = {0};
+
+    char binTestThree[] = "1010";
+    vector <int> resultThree= {0};
+
+    char binTestFour[] = "101011000110101100101";
+    vector <int> resultFour= {0};
+
+    sectionbytes(binTestFour);
+
+    ASSERT_EQ(sectionbytes(binTest),result);
+    ASSERT_EQ(sectionbytes(binTestTwo),resultTwo);
+    ASSERT_EQ(sectionbytes(binTestThree),resultThree);
+
 }
 
 TEST(geneneratePacketTest, miscTest){

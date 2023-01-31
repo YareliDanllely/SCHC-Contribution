@@ -35,6 +35,8 @@ char* hex_to_bin(char* hex,int length=0 );
  * @param length
  * @return binary representation
  */
+
+//DOESNT WORK FOR LONG LONG VALUES
 char* int_to_bin(int num, int length = 0);
 
 /**
@@ -43,6 +45,9 @@ char* int_to_bin(int num, int length = 0);
  * @return hexadecimal representation
  */
 char* int_to_hex(int num);
+
+
+
 
 
 

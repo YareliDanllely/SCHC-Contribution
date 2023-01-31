@@ -188,7 +188,7 @@ map<int,char> invert_dict(map<char,int> m){
 
 }
 
-vector<char*> section_char(char* str, vector<int> indices ){
+vector<char*> section_char(char* str, vector<int> indices){
     int numRange = indices.size();
     int lenStr = strlen(str);
     char * pointer = str;
@@ -213,6 +213,29 @@ vector<char*> section_char(char* str, vector<int> indices ){
     return sectionString;
 
 }
+
+vector <int> sectionbytes(char *bin){
+    vector <int> sections;
+    int len  = strlen(bin);
+    int amount = len/4;
+    float fAmount = (float) len/4;
+    float exactDiv = (float) fAmount - amount;
+    int size;
+
+    ( exactDiv != 0 ? size = amount+1 : size = amount);
+
+    for (int i =size; i>0; i--) {
+        if (i == size) {
+            sections.push_back(0);
+        }
+        else {
+            sections.push_back(len- (i*4));
+        }
+    }
+
+    return sections;
+}
+
 
 void generate_packet(char* str, char * path){
     ofstream myFile;

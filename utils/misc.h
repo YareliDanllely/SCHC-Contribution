@@ -47,7 +47,7 @@ char * replaceChar(char* str, int position, char *newChar );
 vector<int> find(char* str, char *search);
 
 /**
- * return a char cut in a size given by  acutter
+ * return a char cut in a size given by a cutter
  * @param str
  * @return cut char
  */
@@ -69,13 +69,20 @@ bool is_monochar(char*str, char * value);
 
 /**
  * Sections a string in the specified indices and
- *  returns a list of its sections
+ * returns a list of its sections
  * @param str
  * @param search
  * @return
  */
 
 vector<char*> section_char(char* str, vector<int> indices );
+
+/**
+ * generate a vector with values to cut string
+ * @param bin
+ * @return
+ */
+vector <int> sectionbytes(char *bin);
 
 /**
  * Rounds a number to the next greater multiple of a specified factor.
@@ -137,5 +144,8 @@ int getMapValue(map <char *, int> map1, char *lookFor, int value);
  * @return
  */
 char * itos (int value);
+
+
+
 
 #endif //SCHC_CONTRIBUTION_MISC_H

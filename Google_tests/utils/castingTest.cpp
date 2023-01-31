@@ -13,15 +13,18 @@ TEST(binToInt,castingTest) {
 }
 
 TEST(binToHex,castingTest) {
-    char b[] = "10101111010";
+    char b[] = "0001001111001000000000000000000000000000000000000000000000000000";
+    char  resultB[] = "13c8000000000000";
     char  binTest[] = "11010010";
     char  resultBinTest[] = "d2";
     char  secondBinTest[] = "000000011010010";
     char  secondResultBinTest[] = "0d2";
-    ::printf("re: %s\n", bin_to_hex(b));
+
 
    ASSERT_EQ(strcmp(resultBinTest, bin_to_hex(binTest)),0);
    ASSERT_EQ(strcmp(secondResultBinTest, bin_to_hex(secondBinTest)),0);
+   ASSERT_EQ(strcmp(resultB, bin_to_hex(b)),0);
+
 
 }
 
@@ -38,8 +41,13 @@ TEST(intToBin,castingTest) {
     int num= 210;
     char  binResult [] = "11010010";
     char binResultTwo [] = "000011010010";
+    long long value =14252761984;
+    ::printf("hi %s\n", int_to_bin(value));
+
+
     ASSERT_EQ(strcmp(binResult, int_to_bin(num)),0);
     ASSERT_EQ(strcmp(binResultTwo, int_to_bin(num,12)),0);
+
 }
 
 TEST(intToHex,castingTest) {
